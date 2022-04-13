@@ -1,10 +1,21 @@
 h1 {
-  font-size: 15rem;
+  font-size: 5rem;
   color: #e2e2e1;
+  padding-top: 50px;
 }
 body {
-  background: url("../images/ee6707adc483254addebd48c67e73992.jpg") rgba(0, 0, 0, 0.541);
+  background: url("../images/photo-2021-juin-cinema-grand-ecran-terres-de-montaigu.jpg")
+    rgba(0, 0, 0, 0.801);
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: darken;
+}
+.home_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+.home_color {
+  color: #e2e2e1;
 }

@@ -117,8 +117,7 @@ footer {
 /*################## image ##################*/
 /*###########################################*/
 
-.card_detail {
-}
+/*################## Films ##################*/
 
 .dune {
   background: url("../website/images/films/4633954.jpg");
@@ -201,3 +200,97 @@ footer {
   background-repeat: no-repeat;
   border-radius: 15px 15px 0 0;
 }
+
+
+/*################## Series ##################*/
+
+.big {
+  background: url("../website/images/Series/0408812.jpg");
+  background-size: cover;
+  width: 250px;
+  height: 280px;
+  background-repeat: no-repeat;
+  border-radius: 15px 15px 0 0;
+}
+
+.elementary {
+  background: url("../website/images/Series/485305.jpg");
+  background-size: cover;
+  width: 250px;
+  height: 280px;
+  background-repeat: no-repeat;
+  border-radius: 15px 15px 0 0;
+}
+
+.califor {
+  background: url("../website/images/Series/19627416.jpg-c_310_420_x-f_jpg-q_x-xxyxx.jpg");
+  background-size: cover;
+  width: 250px;
+  height: 280px;
+  background-repeat: no-repeat;
+  border-radius: 15px 15px 0 0;
+}
+
+.shameless{
+  background: url("../website/images/Series/1343912.jpg");
+  background-size: cover;
+  width: 250px;
+  height: 280px;
+  background-repeat: no-repeat;
+  border-radius: 15px 15px 0 0;
+}
+
+.sg1 {
+  background: url("../website/images/Series/1633144.jpg");
+  background-size: cover;
+  width: 250px;
+  height: 280px;
+  background-repeat: no-repeat;
+  border-radius: 15px 15px 0 0;
+}
+
+.game {
+  background: url("../website/images/Series/1901278.jpg");
+  background-size: cover;
+  width: 250px;
+  height: 280px;
+  background-repeat: no-repeat;
+  border-radius: 15px 15px 0 0;
+}
+
+.lie {
+  background: url("../website/images/Series/3049468.jpg");
+  background-size: cover;
+  width: 250px;
+  height: 280px;
+  background-repeat: no-repeat;
+  border-radius: 15px 15px 0 0;
+}
+
+.bad {
+  background: url("../website/images/Series/3445791.jpg");
+  background-size: cover;
+  width: 250px;
+  height: 280px;
+  background-repeat: no-repeat;
+  border-radius: 15px 15px 0 0;
+}
+
+.ecarlate {
+  background: url("../website/images/Series/the-handmaids-tale-1-be3348-04ddc5-0@1x.jpg");
+  background-size: cover;
+  width: 250px;
+  height: 280px;
+  background-repeat: no-repeat;
+  border-radius: 15px 15px 0 0;
+}
+
+.drhouse {
+  background: url("../website/images/Series/dr-house-vignette_portrait-90bb84-0@1x.jpg");
+  background-size: cover;
+  width: 250px;
+  height: 280px;
+  background-repeat: no-repeat;
+  border-radius: 15px 15px 0 0;
+}
+
