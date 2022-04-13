@@ -1,3 +1,10 @@
 h1 {
-  font-size: 5rem;
+  font-size: 15rem;
+  color: #e2e2e1;
+}
+body {
+  background: url("../images/ee6707adc483254addebd48c67e73992.jpg") rgba(0, 0, 0, 0.541);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
 }
