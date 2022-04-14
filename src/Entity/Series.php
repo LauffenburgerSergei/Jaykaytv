@@ -46,6 +46,9 @@ class Series
     #[ORM\Column(type: 'integer')]
     private $nombre_saison;
 
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $annee_fin;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -179,6 +182,18 @@ class Series
     public function setNombreSaison(int $nombre_saison): self
     {
         $this->nombre_saison = $nombre_saison;
+
+        return $this;
+    }
+
+    public function getAnneeFin(): ?int
+    {
+        return $this->annee_fin;
+    }
+
+    public function setAnneeFin(?int $annee_fin): self
+    {
+        $this->annee_fin = $annee_fin;
 
         return $this;
     }
