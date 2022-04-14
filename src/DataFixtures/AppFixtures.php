@@ -15,24 +15,24 @@ class AppFixtures extends Fixture
 
 
         $film = new Films();
-        $film->setTitre("Dune")
-            ->setAnnee(2021)
-            ->setGenre1(4)
+        $film->setTitre("Blood Diamond")
+            ->setAnnee(2007)
+            ->setGenre1(11)
             ->setGenre2(3)
-            ->setGenre3(1)
+            ->setGenre3(8)
             ->setActeurs([
-                "Timothée Chalamet",
-                "Rebecca Ferguson",
-                "Oscar Isaac"
+                "Leonardo DiCaprio", 
+                "Djimon Hounsou", 
+                "Jennifer Connelly"
             ])
-            ->setSynopsis("L'histoire de Paul Atreides, jeune homme aussi doué que brillant, voué à connaître un destin hors du commun qui le dépasse totalement. Car s'il veut préserver l'avenir de sa famille et de son peuple, il devra se rendre sur la planète la plus dangereuse de l'univers – la seule à même de fournir la ressource la plus précieuse au monde, capable de décupler la puissance de l'humanité. Tandis que des forces maléfiques se disputent le contrôle de cette planète, seuls ceux qui parviennent à dominer leur peur pourront survivre…")
-            ->setImages("assets/website/images/films/4633954.jpg")
-            ->setDuree(156);
+            ->setSynopsis("Alors qu'il purge une peine de prison pour ses trafics, Archer rencontre Solomon Vandy, un pêcheur d'origine Mende. Arraché à sa famille et forcé de travailler dans les mines diamantifères, ce dernier a trouvé - et caché - un diamant rose extrêmement rare. Accompagnés de Maddy Bowen, une journaliste idéaliste, les deux hommes s'embarquent pour un dangereux voyage en territoire rebelle pour récupérer le fameux caillou. Un voyage qui pourrait bien sauver la famille de Salomon et donner à Archer la seconde chance qu'il n'espérait plus.")
+            ->setImages("assets/website/images/films/18711805.jpg")
+            ->setDuree(143);
             $manager->persist($film);
 
 
         // $genre = new Genres();
-        //     $genre->setGenre("Fantaisie");
+        //     $genre->setGenre("Historique");
         //     $manager->persist($genre);
         
 
