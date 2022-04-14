@@ -15,6 +15,10 @@ class AppFixtures extends Fixture
         // $manager->persist($product);
 
 
+
+
+        // Film
+
         // $film = new Films();
         // $film->setTitre("Blood Diamond")
         //     ->setAnnee(2007)
@@ -30,6 +34,11 @@ class AppFixtures extends Fixture
         //     ->setImages("assets/website/images/films/18711805.jpg")
         //     ->setDuree(143);
         //     $manager->persist($film);
+
+
+
+
+            // serie
 
 
             // $serie = new Series();
@@ -52,11 +61,14 @@ class AppFixtures extends Fixture
             // $manager->persist($serie);
 
 
-        $genre = new Genres();
-            $genre->setGenre("Médicale");
-            $manager->persist($genre);
+
+                // genre
+
+                    $genre = new Genres();
+                        $genre->setGenre("Médicale");
+                        $manager->persist($genre);
         
 
-        $manager->flush();
+                $manager->flush();
     }
 }
