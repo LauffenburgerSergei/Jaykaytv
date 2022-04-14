@@ -46,21 +46,31 @@ class FilmsRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return Films[] Returns an array of Films objects
+    //  * Undocumented function
+    //  *
+    //  * @param [type] $value
+    //  * @return void
     //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('f.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+    // public function findAllFilms(Films $entity)
+    // {
+    //     return $this->findAll();
+    // }
+    /**
+     * @return Films[] Returns an array of Films objects
+     */
+    
+    // public function findByExampleField($value)
+    // {
+    //     return $this->createQueryBuilder('f')
+    //         ->andWhere('f.exampleField = :val')
+    //         ->setParameter('val', $value)
+    //         ->orderBy('f.id', 'ASC')
+    //         ->setMaxResults(10)
+    //         ->getQuery()
+    //         ->getResult()
+    //     ;
+    // }
+    
 
     /*
     public function findOneBySomeField($value): ?Films
