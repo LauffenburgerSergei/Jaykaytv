@@ -3,145 +3,20 @@
     {{ encore_entry_link_tags('film') }} 
 {% endblock %}
 
-
-
 {% block body %}
-
     <h2>Films</h2>
 
-<article class="product ">
-    
-        <section class="product_card">
+<article class="films">    
+{% for film in films %}        
+    <a class="film__card" href={{path('film.show')}}>
         <figure class="figure">
-            <div class="dune ">
-                
-            </div>
-            <figcaption class="figcaption_card">
-            <h3 class="figcaption_card-h3">Dune</h3>
-            
+            <img src={{asset(film.images)}} alt={{film.titre}} class="film__img">
+            <figcaption class="figcaption__card">
+                <h3 class="figcaption_card-h3">{{film.titre}}</h3>            
             </figcaption>
         </figure>
-        </section>
-    
-  
-        <section class="product_card">
-        <figure class="figure">
-            <div class="liste ">
-                
-            </div>
-            <figcaption class="figcaption_card">
-            <h3 class="figcaption_card-h3">La liste de Schindler</h3>
-            
-            </figcaption>
-        </figure>
-        </section>
-  
-    
-        <section class="product_card">
-        <figure class="figure">
-            <div class="fire ">
-                
-            </div>
-            <figcaption class="figcaption_card">
-            <h3 class="figcaption_card-h3">Backdraft</h3>
-            
-            </figcaption>
-        </figure>
-        </section>
-    
-    
-        <section class="product_card">
-        <figure class="figure">
-            <div class="ombre ">
-                
-            </div>
-            <figcaption class="figcaption_card">
-            <h3 class="figcaption_card-h3">Les figures de l'ombre</h3>
-            
-            </figcaption>
-        </figure>
-        </section>
-    
-    
-        <section class="product_card">
-        <figure class="figure">
-            <div class="enigma ">
-                
-            </div>
-            <figcaption class="figcaption_card">
-            <h3 class="figcaption_card-h3">Tmitation game</h3>
-            
-            </figcaption>
-        </figure>
-        </section>
-    
-    
-        <section class="product_card">
-        <figure class="figure">
-            <div class="tueras ">
-                
-            </div>
-            <figcaption class="figcaption_card">
-            <h3 class="figcaption_card-h3">Tu ne tueras point</h3>
-            
-            </figcaption>
-        </figure>
-        </section>
-    
-    
-        <section class="product_card">
-        <figure class="figure">
-            <div class="bonheur">
-                
-            </div>
-            <figcaption class="figcaption_card">
-            <h3 class="figcaption_card-h3">A la recherche du bonheur</h3>
-            
-            </figcaption>
-        </figure>
-        </section>
-    
-    
-        <section class="product_card">
-        <figure class="figure">
-            <div class="vie">
-                
-            </div>
-            <figcaption class="figcaption_card">
-            <h3 class="figcaption_card-h3">Ma vie pour la tienne</h3>
-            
-            </figcaption>
-        </figure>
-        </section>
-    
-    
-        <section class="product_card">
-        <figure class="figure">
-            <div class="braveheart">
-                
-            </div>
-            <figcaption class="figcaption_card">
-            <h3 class="figcaption_card-h3">Braveheart</h3>
-            
-            </figcaption>
-        </figure>
-        </section>
-    
-    
-        <section class="product_card">
-        <figure class="figure">
-            <div class="blood">
-                
-            </div>
-            <figcaption class="figcaption_card">
-            <h3 class="figcaption_card-h3">Blood Diamond</h3>
-            
-            </figcaption>
-        </figure>
-        </section>
-    
-    
-        
+    </a>
+        {% endfor %}
     
 </article>
 {% endblock %}
