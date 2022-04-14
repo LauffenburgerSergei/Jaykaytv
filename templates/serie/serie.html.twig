@@ -8,138 +8,19 @@
 
 <h2>Serie</h2>
 
-<article class="product">
-    
-        <section class="product_card">
+<article class="series">
+
+{% for serie in series %}
+    <a class="serie__card" href={#{path('film.show',{id :serie.id})}#}>
         <figure class="figure">
-            <div class="big">
-                
-            </div>
-            <figcaption class="figcaption_card">
-            <h3 class="figcaption_card-h3">The bigbang theory</h3>
+            <img src={{asset(serie.images)}} alt={{serie.titre}} class="serie__img">
+            <figcaption class="figcaption__card">
+            <h3 class="figcaption_card-h3">{{serie.titre}}</h3>
             
             </figcaption>
         </figure>
-        </section>
-    
-  
-        <section class="product_card">
-        <figure class="figure">
-            <div class="elementary">
-                
-            </div>
-            <figcaption class="figcaption_card">
-            <h3 class="figcaption_card-h3">Elementary</h3>
-            
-            </figcaption>
-        </figure>
-        </section>
-  
-    
-        <section class="product_card">
-        <figure class="figure">
-            <div class="califor">
-                
-            </div>
-            <figcaption class="figcaption_card">
-            <h3 class="figcaption_card-h3">Californication</h3>
-            
-            </figcaption>
-        </figure>
-        </section>
-    
-    
-        <section class="product_card">
-        <figure class="figure">
-            <div class="shameless">
-                
-            </div>
-            <figcaption class="figcaption_card">
-            <h3 class="figcaption_card-h3">Shameless</h3>
-            
-            </figcaption>
-        </figure>
-        </section>
-    
-    
-        <section class="product_card">
-        <figure class="figure">
-            <div class="sg1">
-                
-            </div>
-            <figcaption class="figcaption_card">
-            <h3 class="figcaption_card-h3">Stargate SG1</h3>
-            
-            </figcaption>
-        </figure>
-        </section>
-    
-    
-        <section class="product_card">
-        <figure class="figure">
-            <div class="game">
-                
-            </div>
-            <figcaption class="figcaption_card">
-            <h3 class="figcaption_card-h3">Game of Thrones</h3>
-            
-            </figcaption>
-        </figure>
-        </section>
-    
-    
-        <section class="product_card">
-        <figure class="figure">
-            <div class="lie">
-                
-            </div>
-            <figcaption class="figcaption_card">
-            <h3 class="figcaption_card-h3">Lie to me</h3>
-            
-            </figcaption>
-        </figure>
-        </section>
-    
-    
-        <section class="product_card">
-        <figure class="figure">
-            <div class="bad">
-                
-            </div>
-            <figcaption class="figcaption_card">
-            <h3 class="figcaption_card-h3">Breaking Bad</h3>
-            
-            </figcaption>
-        </figure>
-        </section>
-    
-    
-        <section class="product_card">
-        <figure class="figure">
-            <div class="ecarlate">
-                
-            </div>
-            <figcaption class="figcaption_card">
-            <h3 class="figcaption_card-h3">The handmaid's tale</h3>
-            
-            </figcaption>
-        </figure>
-        </section>
-    
-    
-        <section class="product_card">
-        <figure class="figure">
-            <div class="drhouse">
-                
-            </div>
-            <figcaption class="figcaption_card">
-            <h3 class="figcaption_card-h3">Dr House</h3>
-            
-            </figcaption>
-        </figure>
-        </section>
-    
-    
+        </a>
+{% endfor %}
         
     
 </article>
