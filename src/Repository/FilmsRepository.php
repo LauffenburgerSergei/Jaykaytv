@@ -95,7 +95,7 @@ class FilmsRepository extends ServiceEntityRepository
 public function findOneById(int $id)
     {
         $qb = $this->createQueryBuilder('f')
-            ->where('f.id > :id')
+            ->where('f.id = :id')
             ->setParameter('id', $id);
 
         $query = $qb->getQuery();
