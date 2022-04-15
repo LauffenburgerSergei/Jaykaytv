@@ -11,7 +11,7 @@ Encore
   // .setOutputPath("public/build/")
   .setOutputPath("public/build/website/")
   .copyFiles({
-        from: './assets/images',
+        from: './assets/website/images', 
 
          // optional target path, relative to the output dir
          to: 'images/[path][name].[ext]',
