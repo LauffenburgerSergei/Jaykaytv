@@ -21,14 +21,14 @@ class FilmController extends AbstractController
             'films'=>$films->findAll()
         ]);
     }
-//  @Route("/film/{id}", name="film.show")
+//  
     /**
      * Affiche les détails d'un film
-     *
+     *@Route("/film/{id}", name="film.show")
      * 
      * @return Response
      */
-     #[Route('/film/{$id}', name: 'film.show')]
+    //```` #[Route('/film/{$id}', name: 'film.show')] //ne marche pas ='(
     public function show(FilmsRepository $repository, $id): Response
     {
         
