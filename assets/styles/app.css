@@ -13,6 +13,10 @@ header {
   position: fixed;
   width: 100%;
 }
+main {
+  padding-top: 70px;
+  height: calc(100vh - 120px);
+}
 .logo {
   background: url("../website/images/Transparent.png");
   background-size: contain;
