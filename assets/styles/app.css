@@ -201,7 +201,6 @@ footer {
   border-radius: 15px 15px 0 0;
 }
 
-
 /*################## Series ##################*/
 
 .big {
@@ -231,7 +230,7 @@ footer {
   border-radius: 15px 15px 0 0;
 }
 
-.shameless{
+.shameless {
   background: url("../website/images/Series/1343912.jpg");
   background-size: cover;
   width: 250px;
@@ -293,4 +292,3 @@ footer {
   background-repeat: no-repeat;
   border-radius: 15px 15px 0 0;
 }
-
