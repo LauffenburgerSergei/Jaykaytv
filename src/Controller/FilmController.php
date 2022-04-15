@@ -21,18 +21,24 @@ class FilmController extends AbstractController
             'films'=>$films->findAll()
         ]);
     }
-
+// 
     /**
      * Affiche les détails d'un film
+     * @Route("/film/{id}", name="film.show")
+     * 
+     * @return Response
      */
-    #[Route('/film/{$id}', name: 'film.show')]
-    public function show(ManagerRegistry $doctrine, int $id): Response
+    // #[Route('/film/{$id}', name: 'film_show')]
+    public function show(FilmsRepository $repository, int $id): Response
     {
-        $film = $doctrine->getRepository(Films::class)->find($id);
+        $film = $repository->findOneById($id-1);
         if(!$film){
-            throw $this->createNotFoundException("Aucun film ne correspond à l'identifiant ".$id);
+            return new Response("Aucun film ne correspond à l'identifiant ".$id);
         };
-        return new Response('Aller voir ce super film appelé '.$film->getTitre());
+        return $this->render('film/show.html.twig', [
+            'page_title' => '$film[\'titre\']',
+            'film'=>$film
+            ]);
     }
 
 

@@ -11,17 +11,17 @@ Encore
   // .setOutputPath("public/build/")
   .setOutputPath("public/build/website/")
   .copyFiles({
-        from: './assets/images',
+    from: "./assets/website/images",
 
-         // optional target path, relative to the output dir
-         to: 'images/[path][name].[ext]',
+    // optional target path, relative to the output dir
+    to: "images/[path][name].[ext]",
 
-         // if versioning is enabled, add the file hash too
-         //to: 'images/[path][name].[hash:8].[ext]',
+    // if versioning is enabled, add the file hash too
+    //to: 'images/[path][name].[hash:8].[ext]',
 
-        // only copy files matching this pattern
-         //pattern: /\.(png|jpg|jpeg)$/
-     })
+    // only copy files matching this pattern
+    //pattern: /\.(png|jpg|jpeg)$/
+  })
   // public path used by the web server to access the output path
   // n.setPublicPath("/build")
   .setPublicPath("/build/website")

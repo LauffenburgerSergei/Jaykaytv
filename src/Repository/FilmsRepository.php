@@ -83,4 +83,24 @@ class FilmsRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findAll()
+{
+    return $this->findBy(
+    array(),
+    array('annee' => 'ASC',
+          'titre' => 'ASC')
+    );
+}
+   
+public function findOneById(int $id)
+    {
+        $qb = $this->createQueryBuilder('f')
+            ->where('f.id > :id')
+            ->setParameter('id', $id);
+
+        $query = $qb->getQuery();
+
+        return $query->setMaxResults(1)->getOneOrNullResult();
+    }
+
 }

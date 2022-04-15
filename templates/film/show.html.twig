@@ -1,16 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
-    {{ encore_entry_link_tags('show') }} 
+    {{ encore_entry_link_tags('film') }} 
 {% endblock %}
-
-
-
 {% block body %}
-
-    <h2>{{film.titre}}</h2>
-
 <article class="details">
-
-    
+    <h2>{{film.titre}}</h2>    
 </article>
 {% endblock %}
