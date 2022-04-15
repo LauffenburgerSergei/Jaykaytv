@@ -3,15 +3,12 @@
     {{ encore_entry_link_tags('serie') }} 
 {% endblock %}
 
-
 {% block body %}
-
-<h2>Serie</h2>
+    <h2>Serie</h2>
 
 <article class="series">
-
 {% for serie in series %}
-    <a class="serie__card" href={#{path('film.show',{id :serie.id})}#}>
+    <a class="serie__card" href={{path('serie.show',{ 'id' :serie.id})}}>
         <figure class="figure">
             <img src={{asset(serie.images)}} alt={{serie.titre}} class="serie__img">
             <figcaption class="figcaption__card">

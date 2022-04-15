@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ encore_entry_link_tags('show') }} 
+{% endblock %}
+{% block body %}
+<article class="details" style="color: white">
+    <h2>{{serie.titre}}</h2> 
+    <section>
+    <figure>
+    <img src={{asset(serie.images)}} alt={{serie.titre}}>
+    
+    <figcaption>
+        <p>Date de sortie : {{serie.annee}}  date de fin : {{serie.anneefin}}</p> 
+        <p>Genre : {{serie.genre1}}{% if serie.genre2 is not empty %}, {{serie.genre2}}{% endif %}{% if serie.genre3 is not empty %}, {{serie.genre3}}{% endif %}
+        </p>
+        <p>Acteurs principaux : {% for acteur in serie.acteurs %}{{acteur}}, {% endfor %}</p>
+        <p>Synopsis : {{serie.synopsis}}</p>
+    </figcaption>
+    </figure>
+    <div>
+    <p>Durée moyenne des épisodes : {{serie.dureeepisode}} min</p>
+    <p>Nombre de saisons : {{serie.nombresaison}}</p>
+    <p>Nombre d'episodes : {{serie.nombreepisode}}</p>
+    </div>
+    </section>
+    
+
+</article>
+{% endblock %}

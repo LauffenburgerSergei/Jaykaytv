@@ -20,19 +20,19 @@ class AppFixtures extends Fixture
         // Film
 
         // $film = new Films();
-        // $film->setTitre("Blood Diamond")
-        //     ->setAnnee(2007)
-        //     ->setGenre1(11)
+        // $film->setTitre("Top Gun")
+        //     ->setAnnee(1986)
+        //     ->setGenre1(1)
         //     ->setGenre2(3)
-        //     ->setGenre3(8)
+        //     ->setGenre3(6)
         //     ->setActeurs([
-        //         "Leonardo DiCaprio", 
-        //         "Djimon Hounsou", 
-        //         "Jennifer Connelly"
+        //         "Tom Cruise", 
+        //         "Kelly McGillis", 
+        //         "Tom Skerritt"
         //     ])
-        //     ->setSynopsis("Alors qu'il purge une peine de prison pour ses trafics, Archer rencontre Solomon Vandy, un pêcheur d'origine Mende. Arraché à sa famille et forcé de travailler dans les mines diamantifères, ce dernier a trouvé - et caché - un diamant rose extrêmement rare. Accompagnés de Maddy Bowen, une journaliste idéaliste, les deux hommes s'embarquent pour un dangereux voyage en territoire rebelle pour récupérer le fameux caillou. Un voyage qui pourrait bien sauver la famille de Salomon et donner à Archer la seconde chance qu'il n'espérait plus.")
-        //     ->setImages("assets/website/images/films/18711805.jpg")
-        //     ->setDuree(143);
+        //     ->setSynopsis("Jeune as du pilotage et tête brûlée d'une école réservée à l'élite de l'aéronavale US (\"Top Gun\"), Pete Mitchell, dit \"Maverick\", tombe sous le charme d'une instructrice alors qu'il est en compétition pour le titre du meilleur pilote...")
+        //     ->setImages("build/website/images/films/top_gun.jpg")
+        //     ->setDuree(110);
         //     $manager->persist($film);
 
 
@@ -64,9 +64,9 @@ class AppFixtures extends Fixture
 
                 // genre
 
-                    $genre = new Genres();
-                        $genre->setGenre("Médicale");
-                        $manager->persist($genre);
+                    // $genre = new Genres();
+                    //     $genre->setGenre("Médicale");
+                    //     $manager->persist($genre);
         
 
                 $manager->flush();

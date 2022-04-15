@@ -28,7 +28,7 @@ class FilmController extends AbstractController
      * 
      * @return Response
      */
-    //```` #[Route('/film/{$id}', name: 'film.show')] //ne marche pas ='(
+    //  #[Route('/film/{$id}', name: 'film.show')]
     public function show(FilmsRepository $repository, $id): Response
     {
         

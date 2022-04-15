@@ -1,8 +1,8 @@
 body {
   background: url("../images/poster-1649848692049-3722.jpg")
     rgba(0, 0, 0, 0.801);
-  background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   background-blend-mode: darken;
 }
 .films {
@@ -34,4 +34,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+main {
+  padding-bottom: 50px;
 }

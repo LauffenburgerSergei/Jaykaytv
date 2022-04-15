@@ -1,0 +1,13 @@
+
+body {
+  background: url("../images/poster-1649848692049-3722.jpg")
+    rgba(0, 0, 0, 0.801);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+}
+
+img{
+    width: 250px;
+    height: 350px;
+}
