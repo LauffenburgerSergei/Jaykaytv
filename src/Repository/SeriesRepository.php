@@ -73,4 +73,29 @@ class SeriesRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findAll()
+{
+    return $this->findBy(
+    array(),
+    array('annee' => 'ASC',
+          'titre' => 'ASC')
+    );
+}
+   /**
+    * trouve un element par son id
+    *
+    * @param integer $id
+    * @return array
+    */
+public function findOneById(int $id)
+    {
+        $qb = $this->createQueryBuilder('f')
+            // ->innerJoin('Genre')
+            ->where('f.id = :id')
+            ->setParameter('id', $id);
+
+        $query = $qb->getQuery();
+
+        return $query->setMaxResults(1)->getOneOrNullResult();
+    }
 }

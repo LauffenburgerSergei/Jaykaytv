@@ -14,30 +14,46 @@ class FilmController extends AbstractController
     #[Route('/film', name: 'app_film')]
     public function index(ManagerRegistry $doctrine,FilmsRepository $films): Response
     {        
-        //Récupere l'object en fonction de l'id 
+        //Récupère l'object en fonction de l'id 
         return $this->render('film/film.html.twig', [
             'controller_name' => 'FilmController',
             'page_title' => 'Films',
             'films'=>$films->findAll()
         ]);
     }
-// 
+//  
     /**
      * Affiche les détails d'un film
      * @Route("/film/{id}", name="film.show")
      * 
      * @return Response
      */
-    // #[Route('/film/{$id}', name: 'film_show')]
-    public function show(FilmsRepository $repository, int $id): Response
+    //  #[Route('/film/{$id}', name: 'film.show')]
+    public function show(FilmsRepository $repository, $id): Response
     {
-        $film = $repository->findOneById($id-1);
-        if(!$film){
-            return new Response("Aucun film ne correspond à l'identifiant ".$id);
+        
+        if(!is_numeric($id)){
+            $response = "L'identifiant est incorrect. Le format attendu est numérique.";
+                        return $this->render('film/none.html.twig',[
+                 'page_title' => 'Film inconnu',
+                 'id'=>$id,
+                 'response'=>$response,
+            ]);
+        }
+        $film = $repository->findOneById($id);
+        if(!$film){   
+            $response="Aucun film ne correspond à l'identifiant {{id}}";         
+            return $this->render('film/none.html.twig',[
+                 'page_title' => 'Film inconnu',
+                 'id'=>$id,
+                 'response'=>$response,
+            ]);
         };
+        // var_dump($film); 
+        //$film['titre'],
         return $this->render('film/show.html.twig', [
-            'page_title' => '$film[\'titre\']',
-            'film'=>$film
+            'page_title' => "",
+            'film'=>$film,
             ]);
     }
 

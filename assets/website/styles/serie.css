@@ -1,7 +1,6 @@
 body {
   background: url("../images/series-fi4938383x2133.jpg") rgba(0, 0, 0, 0.801);
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-attachment: fixed;
   background-blend-mode: darken;
 }
 .series {
@@ -33,4 +32,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+main {
+  padding-bottom: 50px;
 }
