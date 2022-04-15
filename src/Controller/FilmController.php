@@ -24,7 +24,7 @@ class FilmController extends AbstractController
 //  
     /**
      * Affiche les détails d'un film
-     * @Route("/film/{id}", name="film.show")
+     *@Route("/film/{id}", name="film.show")
      * 
      * @return Response
      */
