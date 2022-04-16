@@ -1,7 +1,7 @@
 body {
   background: url("../images/poster-1649848692049-3722.jpg")
     rgba(0, 0, 0, 0.801);
-  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
   background-blend-mode: darken;
 }
@@ -11,6 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+   padding-bottom: 100px;
 }
 
 section {
@@ -22,16 +23,19 @@ section {
   padding: 40px;
   border-radius: 20px;
   margin: 50px;
+  align-items: center;
+ 
 }
-figcaption{
+
+figcaption {
   padding-left: 40px;
 }
 
-.ficaption__detail{
+.ficaption__detail {
   padding-bottom: 10px;
 }
 
-figure{
+figure {
   display: flex;
   align-items: center;
 }
@@ -42,10 +46,16 @@ img {
   border-radius: 20px;
 }
 
-.detail_episode{
+.detail_episode {
   display: flex;
   padding-top: 30px;
-  justify-content: space-between
+  justify-content: space-between;
 }
-
+iframe{
+  display: flex;
+  border-radius: 20px;
+  margin-top: 40px;
+}
+  
+  
 

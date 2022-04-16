@@ -49,6 +49,9 @@ class Series
     #[ORM\Column(type: 'integer', nullable: true)]
     private $annee_fin;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $video;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -194,6 +197,18 @@ class Series
     public function setAnneeFin(?int $annee_fin): self
     {
         $this->annee_fin = $annee_fin;
+
+        return $this;
+    }
+
+    public function getVideo(): ?string
+    {
+        return $this->video;
+    }
+
+    public function setVideo(?string $video): self
+    {
+        $this->video = $video;
 
         return $this;
     }
