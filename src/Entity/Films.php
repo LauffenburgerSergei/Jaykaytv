@@ -4,8 +4,13 @@ namespace App\Entity;
 
 use App\Repository\FilmsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Cocur\Slugify\Slugify;
 
 #[ORM\Entity(repositoryClass: FilmsRepository::class)]
+/**
+ * @ORM\Entity()
+ * @ORM\HasLifecycleCallbacks()
+ */
 class Films
 {
     #[ORM\Id]
@@ -39,9 +44,23 @@ class Films
 
     #[ORM\Column(type: 'integer')]
     private $duree;
+/**
+ * Création d'une fonction pour permettre d'initialiser le slug  (avant le persist et avant la maj)
+ * 
+ * @ORM\PrePersist
+ * @ORM\PreUpdate
+ */
+public function initilizeSlug()
+{
+   if(empty($this->slug)){
+        $slugify = new Slugify();
+        $this->slug = $slugify->slugify($this->titre);
+    };
+}
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $video;
+
 
     public function getId(): ?int
     {
@@ -71,13 +90,12 @@ class Films
 
         return $this;
     }
-
-    public function getGenre1(): ?string
+    public function getGenre1(): ?Genres
     {
         return $this->genre_1;
     }
 
-    public function setGenre1(string $genre_1): self
+    public function setGenre1(Genres $genre_1): self
     {
         $this->genre_1 = $genre_1;
 
