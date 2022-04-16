@@ -39,31 +39,7 @@ class FilmController extends AbstractController
         $film = new Films();
         //appelle la creation du formulaire d'ajout 
         $form = $this->createForm(FilmType::class,$film);
-        //on lance la fabrication et la configuration de notre fomrulaire
-        // $form = $this->createFormBuilder($film)
-        //               ->add('titre',TextType::class, ['label'=>"Titre du film",'attr'=>[
-        //                 "class"=>"form__input"
-        //             ]])
-        //               ->add('annee',IntType::class, [
-        //                   'label'=>"Année de création du film",
-        //                   'attr'=>[
-        //                     "class"=>"form__input"
-        //             ]])
-        //               ->add('genre_1',TextType::class, ['label'=>"Genre principal",'attr'=>[
-        //                 "class"=>"form__input"
-        //             ]])
-        //               ->add('genre_2',TextType::class, ['label'=>"Genre secondaire",'attr'=>[
-        //                 "class"=>"form__input"
-        //             ]])
-        //               ->add('genre_3',TextType::class, ['label'=>"Genre tertiaire",'attr'=>[
-        //                 "class"=>"form__input"
-        //             ]])
-        //               ->add('acteurs',)
-        //               ->add('synopsis')
-        //               ->add('images')
-        //               ->add('duree');
-
-        
+       
             return $this->render('film/ajout.html.twig',[
                 'page_title'=>"Ajouter un film",
                 'form'=>$form->createView(),
@@ -80,15 +56,17 @@ class FilmController extends AbstractController
     //  #[Route('/film/{$id}', name: 'film.show')]
     public function show(FilmsRepository $repository, $id): Response
     {
-        
-        // if(!is_numeric($id)){
-        //     $response = "L'identifiant est incorrect. Le format attendu est numérique.";
-        //                 return $this->render('film/none.html.twig',[
-        //          'page_title' => 'Film inconnu',
-        //          'id'=>$id,
-        //          'response'=>$response,
-        //     ]);
-        // }
+        $genres = [
+            'Action','Comédie','Drame','Science Fiction', 'Horreur','Romance','Animation','Thriller','Biopic','Guerre','Aventure','Crime','Fantastique','Fantaisie','Historique','Policier', 'Comédie Romantique','Médical'
+        ];
+        if(!is_numeric($id)){
+            $response = "L'identifiant est incorrect. Le format attendu est numérique.";
+                        return $this->render('film/none.html.twig',[
+                 'page_title' => 'Film inconnu',
+                 'id'=>$id,
+                 'response'=>$response,
+            ]);
+        }
         $film = $repository->findOneById($id);
         if(!$film){   
             $response="Aucun film ne correspond à l'identifiant {{id}}";         
@@ -98,12 +76,10 @@ class FilmController extends AbstractController
                  'response'=>$response,
             ]);
         };
-        
-        // var_dump($film); 
-        //$film['titre'],
         return $this->render('film/show.html.twig', [
             'page_title' => "",
             'film'=>$film,
+            'genres'=>$genres,
             ]);
     }
 
