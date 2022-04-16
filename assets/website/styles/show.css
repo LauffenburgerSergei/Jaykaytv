@@ -47,6 +47,7 @@ img {
 }
 
 .detail_episode {
+  width: 100%;
   display: flex;
   padding-top: 30px;
   justify-content: space-between;

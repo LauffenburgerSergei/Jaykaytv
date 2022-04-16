@@ -90,12 +90,12 @@ public function initilizeSlug()
 
         return $this;
     }
-    public function getGenre1(): ?Genres
+    public function getGenre1(): ?int
     {
         return $this->genre_1;
     }
 
-    public function setGenre1(Genres $genre_1): self
+    public function setGenre1(?int $genre_1): self
     {
         $this->genre_1 = $genre_1;
 
