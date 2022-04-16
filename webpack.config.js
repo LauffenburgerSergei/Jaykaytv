@@ -36,6 +36,7 @@ Encore
    */
   .addEntry("app", "./assets/app.js")
   .addEntry("home", "./assets/website/home.js")
+  .addEntry("ajout", "./assets/website/ajout.js")
   .addEntry("film", "./assets/website/film.js")
   .addEntry("serie", "./assets/website/serie.js")
   .addEntry("show", "./assets/website/show.js")
