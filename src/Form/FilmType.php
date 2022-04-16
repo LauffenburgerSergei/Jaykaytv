@@ -28,9 +28,9 @@ class FilmType extends AbstractType
                     "class"=>"form__input"                
             ]])
             ->add('annee',NumberType::class, [
-                    'label'=>"Année de création du film",
+                    'label'=>"Année de sortie du film",
                     'attr'=>[
-                        'placeholder' => 'Année de création du film',
+                        'placeholder' => 'Année de sortie du film',
                         "class"=>"form__input",
                         "min"=>"1900",
                         "max"=>"2050",
@@ -44,27 +44,23 @@ class FilmType extends AbstractType
             ->add('synopsis',TextareaType::class,[
                 'label'=>'Synopsis',
                 'attr'=> [
-                    'class'=>"form__textarea",
                     'placeholder'=>'Synopsis',
-                    'rows'=>10,
                 ],
             ])
             ->add('images',FileType::class,[
                 'label'=>'Insérer une image',
                 'attr'=> [
-                    'class'=>"form__file",
                     'placeholder'=>'Insérer une image',
                 ],
             ])
             ->add('duree',NumberType::class,[
                                 'label'=>'Insérer une durée',
                 'attr'=> [
-                    'class'=>"form__int",
                     'placeholder'=>'Insérer une durée',
                     
                 ],
             ])
-            ->add('save',SubmitType::class, ['label'=>"Suggérer un film",'attr'=>["class"=>"btn_link btn_submit"]])
+            ->add('save',SubmitType::class, ['label'=>"Suggérer ce film",'attr'=>["class"=>"btn_link btn_submit"]])
         ;
     }
 

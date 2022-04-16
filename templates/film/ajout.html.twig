@@ -2,15 +2,33 @@
 {% block stylesheets %}
     {# {{ encore_entry_link_tags('film') }}  #}
 {% endblock %}
-
+{% form_theme form _self %}
 {% block body %}
-<article style=></article>
-    <h2>Ajout film</h2>
-
-<article class="films">    
+<article class="ajout_film">
+    <h2 class="title_padding">Ajout film</h2>  
 {{form_start(form)}}
 
 
 {{form_end(form)}}
 </article>
+{% endblock %}
+{% block form_row %}
+{{dump()}}
+    <div class="form__group">
+        {{form_label(form)}}
+        {{form_widget(form)}}
+    </div>
+
+{% endblock %}
+{% block text_widget %}
+<input type="text" name="{{full_name}}" id="{{id}}" class="form__input"/>
+{% endblock %}
+{% block textarea_widget %}
+<textarea name="{{full_name}}" id="{{id}}" class="form__textarea"></textarea>
+{% endblock %}
+{% block file_widget %}
+<input type="file" name="{{full_name}}" id="{{id}}" class="form__filet"/>
+{% endblock %}
+{% block number_widget %}
+<input type="number" name="{{full_name}}" id="{{id}}" class="form__int"/>
 {% endblock %}
