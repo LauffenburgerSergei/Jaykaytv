@@ -158,7 +158,7 @@ public function initializeSlug()
         return $this->images;
     }
 
-    public function setImages(string $images): self
+    public function setImages(?string $images): self
     {
         $this->images = $images;
 
