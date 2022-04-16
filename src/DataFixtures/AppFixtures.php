@@ -20,19 +20,17 @@ class AppFixtures extends Fixture
         // Film
 
         // $film = new Films();
-        // $film->setTitre("Top Gun")
-        //     ->setAnnee(1986)
-        //     ->setGenre1(1)
-        //     ->setGenre2(3)
-        //     ->setGenre3(6)
+        // $film->setTitre("First Man")
+        //     ->setAnnee(2018)
+        //     ->setGenre1(3)
+        //     ->setGenre2(9)
+        //     // ->setGenre3(15)
         //     ->setActeurs([
-        //         "Tom Cruise", 
-        //         "Kelly McGillis", 
-        //         "Tom Skerritt"
+        //         "Ryan Gosling", "Claire Foy", "Jason Clarke"
         //     ])
-        //     ->setSynopsis("Jeune as du pilotage et tête brûlée d'une école réservée à l'élite de l'aéronavale US (\"Top Gun\"), Pete Mitchell, dit \"Maverick\", tombe sous le charme d'une instructrice alors qu'il est en compétition pour le titre du meilleur pilote...")
-        //     ->setImages("build/website/images/films/top_gun.jpg")
-        //     ->setDuree(110);
+        //     ->setSynopsis("Pilote jugé « un peu distrait » par ses supérieurs en 1961, Neil Armstrong sera, le 21 juillet 1969, le premier homme à marcher sur la lune. Durant huit ans, il subit un entraînement de plus en plus difficile, assumant courageusement tous les risques d’un voyage vers l’inconnu total. Meurtri par des épreuves personnelles qui laissent des traces indélébiles, Armstrong tente d’être un mari aimant auprès d’une femme qui l’avait épousé en espérant une vie normale.")
+        //     ->setImages("build/website/images/films/First_Man.jpg")
+        //     ->setDuree(142);
         //     $manager->persist($film);
 
 
@@ -41,31 +39,29 @@ class AppFixtures extends Fixture
             // serie
 
 
-            // $serie = new Series();
-            // $serie->setTitre("Dr House")
-            // ->setAnnee(2004)
-            // ->setAnneeFin(2012)
-            // ->setGenre1(17)
-            // ->setGenre2(3)
-            // ->setGenre3(18)
-            // ->setActeurs([
-            //     "Hugh Laurie", 
-            //     "Robert Sean Leonard", 
-            //     "Jesse Spencer"
-            // ])
-            // ->setSynopsis("Le Dr Greg House est un médecin revêche qui ne fait confiance à personne, et encore moins à ses patients. Irrévérencieux et controversé, il n'en serait que plus heureux s'il pouvait ne pas adresser la parole à ses patients. Mais House est un brillant médecin. Et avec son équipe d'experts, il est prêt à tout pour résoudre les cas médicaux les plus mystérieux et sauver des vies.")
-            // ->setImages("assets/website/images/films/dr-house-vignette_portrait-90bb84-0@1x.jpg")
-            // ->setDureeEpisode(44)
-            // ->setNombreEpisode(177)
-            // ->setNombreSaison(8);
-            // $manager->persist($serie);
+            $serie = new Series();
+            $serie->setTitre("NCIS")
+            ->setAnnee(2003)
+            // ->setAnneeFin(2020)
+            ->setGenre1(3)
+            ->setGenre2(16)
+            // ->setGenre3(6)
+            ->setActeurs([
+                  "Mark Harmon", "Gary Cole", "Sean Murray"
+            ])
+            ->setSynopsis("La Naval Criminal Investigative Service regroupe une équipe d'agents spéciaux chargés d'enquêter sur des crimes concernant la Marine.")
+            ->setImages("build/website/images/series/ncis.jpg")
+            ->setDureeEpisode(42)
+            ->setNombreEpisode(458)
+            ->setNombreSaison(20);
+            $manager->persist($serie);
 
 
 
                 // genre
 
                     // $genre = new Genres();
-                    //     $genre->setGenre("Médicale");
+                    //     $genre->setGenre("Western");
                     //     $manager->persist($genre);
         
 

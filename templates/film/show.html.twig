@@ -5,19 +5,19 @@
 {% block body %}
 <article class="details" style="color: white">
     <h2>{{film.titre}}</h2> 
-    
-    <figure>
-    <img src={{asset(film.images)}} alt={{film.titre}}>
-    
-    <figcaption>
-        <p>Date de sortie : {{film.annee}}</p> 
-        <p>Durée : {{film.duree}} min</p>
-        <p>Genre : {{film.genre1}}{% if film.genre2 is not empty %}, {{film.genre2}}{% endif %}{% if film.genre3 is not empty %}, {{film.genre3}}{% endif %}
-        </p>
-        <p>Acteurs principaux : {% for acteur in film.acteurs %}{{acteur}}, {% endfor %}</p>
-        <p>Synopsis : {{film.synopsis}}</p>
-    </figcaption>
-    </figure>
+    <section>
+        <figure>
+            <img src={{asset(film.images)}} alt={{film.titre}}>
+            <figcaption>
+                <p class="ficaption__detail">Date de sortie : {{film.annee}}</p> 
+                <p class="ficaption__detail">Durée : {{film.duree}} min</p>
+                <p class="ficaption__detail">Genre : {{film.genre1}}{% if film.genre2 is not empty %}, {{film.genre2}}{% endif %}{% if film.genre3 is not empty %}, {{film.genre3}}{% endif %}
+                </p>
+                <p class="ficaption__detail">Acteurs principaux : {% for acteur in film.acteurs %}{{acteur}}, {% endfor %}</p>
+                <p class="ficaption__detail">Synopsis : {{film.synopsis}}</p>
+            </figcaption>
+        </figure>
+    </section>
     
 
 </article>

@@ -47,13 +47,14 @@ h2 {
   color: #fdfcfc;
   font-size: 3rem;
   text-align: center;
-  padding-top: 80px;
+  padding-top: 100px;
 }
 
 h3 {
   font-family: "Grape Nuts", cursive;
   color: #fdfcfc;
   font-size: 1.1rem;
+  
 }
 
 footer {
@@ -119,7 +120,7 @@ footer {
 
 /*################## Films ##################*/
 
-.dune {
+/* .dune {
   background: url("../website/images/films/4633954.jpg");
   background-size: cover;
   width: 250px;
@@ -203,7 +204,7 @@ footer {
 
 /*################## Series ##################*/
 
-.big {
+/* .big {
   background: url("../website/images/Series/0408812.jpg");
   background-size: cover;
   width: 250px;
@@ -291,4 +292,4 @@ footer {
   height: 280px;
   background-repeat: no-repeat;
   border-radius: 15px 15px 0 0;
-}
+} */ 
