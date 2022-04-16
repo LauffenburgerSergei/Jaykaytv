@@ -13,8 +13,8 @@
                 <p class="ficaption__detail">Date de sortie : {{serie.annee}}  | {{serie.anneefin ? "Date de fin : #{serie.anneefin}": 'En Cours'}}</p> 
                 <p class="ficaption__detail">Genre : {{serie.genre1}}{% if serie.genre2 is not empty %}, {{serie.genre2}}{% endif %}{% if serie.genre3 is not empty %}, {{serie.genre3}}{% endif %}
                 </p>
-                <p class="ficaption__detail">Acteurs principaux : {% for acteur in serie.acteurs %}{{acteur}}, {% endfor %}</p>
-                <p class="ficaption__detail">Synopsis : {{serie.synopsis}}</p>
+                <p class="ficaption__detail">Acteurs principaux : {% for acteur in serie.acteurs %}{{acteur}}, {% endfor %}</p><br/>
+                <p class="ficaption__detail">Synopsis :<br/> {{serie.synopsis}}</p>
             </figcaption>
         </figure>
         <div class="detail_episode">

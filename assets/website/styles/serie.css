@@ -13,6 +13,10 @@ body {
   margin: 30px;
   text-decoration: none;
 }
+.serie__card:last-child {
+  margin-bottom: 100px;
+}
+
 .figure {
   box-shadow: 0 0 8px rgb(0 0 0 / 25%);
   border-radius: 15px;

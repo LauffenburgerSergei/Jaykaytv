@@ -39,22 +39,22 @@ class AppFixtures extends Fixture
             // serie
 
 
-            $serie = new Series();
-            $serie->setTitre("NCIS")
-            ->setAnnee(2003)
-            // ->setAnneeFin(2020)
-            ->setGenre1(3)
-            ->setGenre2(16)
-            // ->setGenre3(6)
-            ->setActeurs([
-                  "Mark Harmon", "Gary Cole", "Sean Murray"
-            ])
-            ->setSynopsis("La Naval Criminal Investigative Service regroupe une équipe d'agents spéciaux chargés d'enquêter sur des crimes concernant la Marine.")
-            ->setImages("build/website/images/series/ncis.jpg")
-            ->setDureeEpisode(42)
-            ->setNombreEpisode(458)
-            ->setNombreSaison(20);
-            $manager->persist($serie);
+            // $serie = new Series();
+            // $serie->setTitre("NCIS")
+            // ->setAnnee(2003)
+            // // ->setAnneeFin(2020)
+            // ->setGenre1(3)
+            // ->setGenre2(16)
+            // // ->setGenre3(6)
+            // ->setActeurs([
+            //       "Mark Harmon", "Gary Cole", "Sean Murray"
+            // ])
+            // ->setSynopsis("La Naval Criminal Investigative Service regroupe une équipe d'agents spéciaux chargés d'enquêter sur des crimes concernant la Marine.")
+            // ->setImages("build/website/images/series/ncis.jpg")
+            // ->setDureeEpisode(42)
+            // ->setNombreEpisode(458)
+            // ->setNombreSaison(20);
+            // $manager->persist($serie);
 
 
 
