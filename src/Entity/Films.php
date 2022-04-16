@@ -40,6 +40,9 @@ class Films
     #[ORM\Column(type: 'integer')]
     private $duree;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $video;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -149,6 +152,18 @@ class Films
     public function setDuree(int $duree): self
     {
         $this->duree = $duree;
+
+        return $this;
+    }
+
+    public function getVideo(): ?string
+    {
+        return $this->video;
+    }
+
+    public function setVideo(?string $video): self
+    {
+        $this->video = $video;
 
         return $this;
     }
