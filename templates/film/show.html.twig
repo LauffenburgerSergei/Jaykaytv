@@ -13,10 +13,11 @@
                 <p class="ficaption__detail">Durée : {{film.duree}} min</p>
                 <p class="ficaption__detail">Genre : {{film.genre1}}{% if film.genre2 is not empty %}, {{film.genre2}}{% endif %}{% if film.genre3 is not empty %}, {{film.genre3}}{% endif %}
                 </p>
-                <p class="ficaption__detail">Acteurs principaux : {% for acteur in film.acteurs %}{{acteur}}, {% endfor %}</p>
-                <p class="ficaption__detail">Synopsis : {{film.synopsis}}</p>
+                <p class="ficaption__detail">Acteurs principaux : {% for acteur in film.acteurs %}{{acteur}}, {% endfor %}</p><br/>
+                <p class="ficaption__detail">Synopsis :<br/> {{film.synopsis}}</p>
             </figcaption>
         </figure>
+       {% if film.video is not empty %}<iframe width="560" height="315" src={{(film.video)}} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>{% endif %}
     </section>
     
 
