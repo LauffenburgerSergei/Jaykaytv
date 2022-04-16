@@ -4,7 +4,9 @@
 {% endblock %}
 
 {% block body %}
+    <a class="btn_link btn__film" href={{ path('film.ajout')}}>Suggérer un films</a>
     <h2>Films</h2>
+    
 
 <article class="films">    
 {% for film in films %}   

@@ -13,11 +13,14 @@ body {
   align-items: center;
    padding-bottom: 100px;
 }
+.title_padding{
+    padding-top: 80px;
+}
 
 section {
   display: flex;
   flex-direction: column;
-  background-color: #2b2b29;
+  background-color: #5a5a5a;
   width: 900px;
   text-align: justify;
   padding: 40px;
