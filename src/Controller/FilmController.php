@@ -3,21 +3,20 @@
 namespace App\Controller;
 
 use App\Entity\Films;
-use App\Entity\Genres;
 use App\Form\FilmType;
 use App\Repository\FilmsRepository;
+use Doctrine\Persistence\ObjectManager;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\VarDumper\VarDumper;
 
 class FilmController extends AbstractController
 {
     #[Route('/film', name: 'app_film')]
-    public function index(ManagerRegistry $doctrine,FilmsRepository $films): Response
+    public function index(FilmsRepository $films): Response
     {        
         //Récupère l'object en fonction de l'id 
         return $this->render('film/film.html.twig', [
@@ -26,26 +25,46 @@ class FilmController extends AbstractController
             'films'=>$films->findAll()
         ]);
     }
-        /**
+    /**
      * Permet l'ajout de film dans la base de donnée
      *
      * @param ManagerRegistry $doctrine
      * @return Response
      */
     #[Route('/film/ajout',name: 'film.ajout')]
-    public function ajoutFilm(): Response
+    public function ajoutFilm(Request $request, ManagerRegistry $doctrine): Response
     {
+        $manager= $doctrine->getManager();
         // fabricant de formulaire de symfony : FORMBUILDER
         $film = new Films();
         //appelle la creation du formulaire d'ajout 
         $form = $this->createForm(FilmType::class,$film);
-       
-            return $this->render('film/ajout.html.twig',[
-                'page_title'=>"Ajouter un film",
-                'form'=>$form->createView(),
-            ]);
+        // Récuperation des données du fomulaires
+        $form->handleRequest($request);
+        $string = $film->getActeurs();
+        var_dump($string);
+        // $film->'acteurs' = explode(";",$string);
+        
+ ;       // Securité et validation
+        if($form->isSubmitted() && $form->isValid()){
+            //si le formulaire est soumis ET valide on demande a doctrine de sauvegarder ces données dans la bdd
+            $manager ->persist($film);
+            // $manager->flush();
+            return $this->redirectToRoute('film.show',[
+                'page_title'=>$film->getTitre(),
+                'id'=>$film->getId(),
 
+            ]);
+        }
+        
+        return $this->render('film/ajout.html.twig',[
+            'page_title'=>"Ajouter un film",
+            'form'=>$form->createView(),
+        ]);
     }
+
+
+
 //  
     /**
      * Affiche les détails d'un film

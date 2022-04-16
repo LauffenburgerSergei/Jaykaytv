@@ -3,8 +3,8 @@
     {{ encore_entry_link_tags('show') }} 
 {% endblock %}
 {% block body %}
-<article class="details" style="color: white">
-    <h2>{{serie.titre}}</h2> 
+<article class="details">
+    <h2 class="title_padding">{{serie.titre}}</h2> 
     <section>
         <figure>
             <img src={{asset(serie.images)}} alt={{serie.titre}}>

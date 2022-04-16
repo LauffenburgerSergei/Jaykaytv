@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
-    {# {{ encore_entry_link_tags('film') }}  #}
+    {{ encore_entry_link_tags('ajout') }} 
 {% endblock %}
 {% form_theme form _self %}
 {% block body %}
-<article class="ajout_film">
+<article class="ajout__film">
     <h2 class="title_padding">Ajout film</h2>  
 {{form_start(form)}}
 
@@ -13,12 +13,19 @@
 </article>
 {% endblock %}
 {% block form_row %}
-{{dump()}}
+{# {{dump()}} #}
     <div class="form__group">
         {{form_label(form)}}
         {{form_widget(form)}}
     </div>
-
+{{ form_label(form.acteurs) }}
+<ul>
+{% for actorField in form.acteurs %}
+    <li>
+        {{ form_widget(actoreField) }}
+    </li>
+{% endfor %}
+</ul>
 {% endblock %}
 {% block text_widget %}
 <input type="text" name="{{full_name}}" id="{{id}}" class="form__input"/>
@@ -31,4 +38,8 @@
 {% endblock %}
 {% block number_widget %}
 <input type="number" name="{{full_name}}" id="{{id}}" class="form__int"/>
+{% endblock %}
+{% block collection_widget %}
+<input type="text" id="form_emails_0" name="form[emails][0]" />
+<input type="email" id="form_emails_1" name="form[emails][1]"/>
 {% endblock %}
