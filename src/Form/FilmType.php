@@ -9,6 +9,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -23,21 +25,20 @@ class FilmType extends AbstractType
                 
                 'attr'=>[
                     'placeholder' => 'Titre du film',
-                    "class"=>"form__input"
-                
+                    "class"=>"form__input"                
             ]])
-            ->add('annee',TextType::class, [
+            ->add('annee',NumberType::class, [
                     'label'=>"Année de création du film",
-                    
                     'attr'=>[
                         'placeholder' => 'Année de création du film',
                         "class"=>"form__input",
-                        
-                    ]
+                        "min"=>"1900",
+                        "max"=>"2050",
+                    ],
             ])
             ->add('acteurs',TextType::class,[
                 'label'=>'Liste des acteurs principaux','attr'=>[
-                    'placeholder' => 'Titre du film',
+                    'placeholder' => 'Liste des acteurs principaux',
                     "class"=>"form__input"
 ]            ])
             ->add('synopsis',TextareaType::class,[
@@ -45,11 +46,25 @@ class FilmType extends AbstractType
                 'attr'=> [
                     'class'=>"form__textarea",
                     'placeholder'=>'Synopsis',
-                ]
+                    'rows'=>10,
+                ],
             ])
-            ->add('images')
-            ->add('duree')
-            ->add('save',SubmitType::class, ['label'=>"Suggérer un film",'attr'=>["class"=>"btn_link"]])
+            ->add('images',FileType::class,[
+                'label'=>'Insérer une image',
+                'attr'=> [
+                    'class'=>"form__file",
+                    'placeholder'=>'Insérer une image',
+                ],
+            ])
+            ->add('duree',NumberType::class,[
+                                'label'=>'Insérer une durée',
+                'attr'=> [
+                    'class'=>"form__int",
+                    'placeholder'=>'Insérer une durée',
+                    
+                ],
+            ])
+            ->add('save',SubmitType::class, ['label'=>"Suggérer un film",'attr'=>["class"=>"btn_link btn_submit"]])
         ;
     }
 

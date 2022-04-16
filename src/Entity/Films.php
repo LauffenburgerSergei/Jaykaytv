@@ -24,7 +24,7 @@ class Films
     #[ORM\Column(type: 'integer')]
     private $annee;
 
-    #[ORM\Column(type: 'integer', nullable: false)]
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $genre_1;
 
     #[ORM\Column(type: 'integer', nullable: true)]
@@ -50,7 +50,7 @@ class Films
  * @ORM\PrePersist
  * @ORM\PreUpdate
  */
-public function initilizeSlug()
+public function initializeSlug()
 {
    if(empty($this->slug)){
         $slugify = new Slugify();
@@ -60,6 +60,9 @@ public function initilizeSlug()
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $video;
+
+    // #[ORM\Column(type: 'integer', nullable: true)]
+    // private $genre_;
 
 
     public function getId(): ?int
@@ -185,4 +188,16 @@ public function initilizeSlug()
 
         return $this;
     }
+
+    // public function getGenre(): ?int
+    // {
+    //     return $this->genre_;
+    // }
+
+    // public function setGenre(?int $genre_): self
+    // {
+    //     $this->genre_ = $genre_;
+
+    //     return $this;
+    // }
 }

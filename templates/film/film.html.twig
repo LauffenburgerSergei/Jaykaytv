@@ -7,7 +7,8 @@
     <h2>Films</h2>
 
 <article class="films">    
-{% for film in films %}        
+{% for film in films %}   
+  
     <a class="film__card" href={{path('film.show',{ 'id' : film.id})}}>
         <figure class="figure">
             <img src={{asset(film.images)}} alt={{film.titre}} class="film__img">
