@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\SeriesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+
 #[ORM\Entity(repositoryClass: SeriesRepository::class)]
 class Series
 {
