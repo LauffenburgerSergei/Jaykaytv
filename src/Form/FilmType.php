@@ -40,10 +40,11 @@ class FilmType extends AbstractType
             ->add('titre',TextType::class,$this->getConfiguration('Titre du film','Titre du film'))
             ->add('annee',IntegerType::class,$this->getConfiguration('Année de sortie du film','Année de sortie du film',' "min"=>"1900",
                         "max"=>"2050",'))
-            ->add('acteurs',CollectionType::class,[
-                //chaque entrée qui sera dans le tableau aura un champs ...
-                'entry_type'=>TextType::class,'label'=>'Liste des acteurs principaux','attr'=>[
-                    'placeholder'=>'nianiania',]])
+            // ->add('acteurs',CollectionType::class,[
+            //     //chaque entrée qui sera dans le tableau aura un champs ...
+            //     'entry_type'=>TextType::class,'label'=>'Liste des acteurs principaux','attr'=>[
+            //         'placeholder'=>'nianiania',]])
+            ->add('acteurs', TextType::class, $this->getConfiguration('Liste des acteurs principaux','Liste des acteurs principaux'))
             ->add('synopsis',TextareaType::class,$this->getConfiguration('Synopsis','Synopsis'))
             ->add('images',FileType::class,$this->getConfiguration('Insérer une image','Insérer une image'))
             ->add('duree',IntegerType::class,$this->getConfiguration('Insérer une durée','Insérer une durée'))

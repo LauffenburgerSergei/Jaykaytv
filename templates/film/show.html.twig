@@ -13,7 +13,7 @@
                 <p class="ficaption__detail">Durée : {{film.duree}} min</p>
                 <p class="ficaption__detail">Genre : {% for key, genre in genres %}{% if key+1 == film.genre1 %}{{genre}}{% endif %}{% endfor %}{% if film.genre2 is not empty %}{% for key, genre in genres %}{% if key+1 == film.genre2 %}, {{genre}}{% endif %}{% endfor %}{% endif %}{% if film.genre3 is not empty %}{% for key, genre in genres %}{% if key+1 == film.genre3 %}, {{genre}}{% endif %}{% endfor %}{% endif %}
                 </p>
-                <p class="ficaption__detail">Acteurs principaux : {% for acteur in film.acteurs %}{{acteur}}, {% endfor %}</p><br/>
+                <p class="ficaption__detail">Acteurs principaux : {{film.acteurs}}</p><br/>
                 <p class="ficaption__detail">Synopsis :<br/> {{film.synopsis}}</p>
             </figcaption>
         </figure>

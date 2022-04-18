@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\FilmsRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
+use Symfony\Component\Validator\Constraints\Length;
 
 #[ORM\Entity(repositoryClass: FilmsRepository::class)]
 /**
@@ -33,8 +34,8 @@ class Films
     #[ORM\Column(type: 'integer', nullable: true)]
     private $genre_3;
 
-    #[ORM\Column(type: 'array')]
-    private $acteurs = [];
+    #[ORM\Column(type: 'string', length: 255)]
+    private $acteurs;
 
     #[ORM\Column(type: 'text')]
     private $synopsis;
@@ -60,6 +61,7 @@ public function initializeSlug()
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $video;
+
 
     // #[ORM\Column(type: 'integer', nullable: true)]
     // private $genre_;
@@ -129,12 +131,12 @@ public function initializeSlug()
         return $this;
     }
 
-    public function getActeurs(): ?array
+    public function getActeurs(): ?string
     {
         return $this->acteurs;
     }
 
-    public function setActeurs(array $acteurs): self
+    public function setActeurs(string $acteurs): self
     {
         $this->acteurs = $acteurs;
 
@@ -200,4 +202,5 @@ public function initializeSlug()
 
     //     return $this;
     // }
+
 }
