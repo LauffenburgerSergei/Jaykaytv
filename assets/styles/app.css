@@ -15,7 +15,7 @@ header {
 }
 main {
   display: flex;
-  padding-top: 20px;
+  padding-top: 70px;
   height: calc(100vh - 120px);
   flex-direction: column;
   align-items: center;
@@ -57,7 +57,7 @@ h2 {
 }
 
 .btn__film {
-  margin-top: 80px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -123,194 +123,22 @@ footer {
 .figcaption_card-p {
   padding-top: 5px;
 }
-
-.alert{
-  border-radius: 5px;
+.alerts {
+  margin: 1rem;
+  margin-top: 0;
+  width: 100%;
+}
+.alert {
   border-width: 2px;
   border-style: solid;
-  color:#d3d3d3;
-  background-color: #02052288;
+  color: #d3d3d3;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: large;
+  position: relative;
+  z-index: 100;
 }
-.alert-success{
+.alert-success {
   border-color: green;
+  background-color: green;
 }
-
-/*###########################################*/
-/*################## image ##################*/
-/*###########################################*/
-
-/*################## Films ##################*/
-
-/* .dune {
-  background: url("../website/images/films/4633954.jpg");
-  background-size: cover;
-  width: 250px;
-  height: 280px;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-}
-
-.liste {
-  background: url("../website/images/films/5927961.jpg-c_310_420_x-f_jpg-q_x-xxyxx.jpg");
-  background-size: cover;
-  width: 250px;
-  height: 280px;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-}
-.fire {
-  background: url("../website/images/films/Backdraft.jpg");
-  background-size: cover;
-  width: 250px;
-  height: 280px;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-}
-.ombre {
-  background: url("../website/images/films/573198.jpg");
-  background-size: cover;
-  width: 250px;
-  height: 280px;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-}
-.enigma {
-  background: url("../website/images/films/images.jpg");
-  background-size: cover;
-  width: 250px;
-  height: 280px;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-}
-.tueras {
-  background: url("../website/images/films/302469.jpg-c_310_420_x-f_jpg-q_x-xxyxx.jpg");
-  background-size: cover;
-  width: 250px;
-  height: 280px;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-}
-.bonheur {
-  background: url("../website/images/films/lBYOKAMcxIvuk9s9hMuecB9dPBV.jpg");
-  background-size: cover;
-  width: 250px;
-  height: 280px;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-}
-.vie {
-  background: url("../website/images/films/19142917.jpg-c_310_420_x-f_jpg-q_x-xxyxx.jpg");
-  background-size: cover;
-  width: 250px;
-  height: 280px;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-}
-.braveheart {
-  background: url("../website/images/films/19209164.jpg-c_310_420_x-f_jpg-q_x-xxyxx.jpg");
-  background-size: cover;
-  width: 250px;
-  height: 280px;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-}
-.blood {
-  background: url("../website/images/films/18711805.jpg");
-  background-size: cover;
-  width: 250px;
-  height: 280px;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-}
-
-/*################## Series ##################*/
-
-/* .big {
-  background: url("../website/images/Series/0408812.jpg");
-  background-size: cover;
-  width: 250px;
-  height: 280px;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-}
-
-.elementary {
-  background: url("../website/images/Series/485305.jpg");
-  background-size: cover;
-  width: 250px;
-  height: 280px;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-}
-
-.califor {
-  background: url("../website/images/Series/19627416.jpg-c_310_420_x-f_jpg-q_x-xxyxx.jpg");
-  background-size: cover;
-  width: 250px;
-  height: 280px;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-}
-
-.shameless {
-  background: url("../website/images/Series/1343912.jpg");
-  background-size: cover;
-  width: 250px;
-  height: 280px;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-}
-
-.sg1 {
-  background: url("../website/images/Series/1633144.jpg");
-  background-size: cover;
-  width: 250px;
-  height: 280px;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-}
-
-.game {
-  background: url("../website/images/Series/1901278.jpg");
-  background-size: cover;
-  width: 250px;
-  height: 280px;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-}
-
-.lie {
-  background: url("../website/images/Series/3049468.jpg");
-  background-size: cover;
-  width: 250px;
-  height: 280px;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-}
-
-.bad {
-  background: url("../website/images/Series/3445791.jpg");
-  background-size: cover;
-  width: 250px;
-  height: 280px;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-}
-
-.ecarlate {
-  background: url("../website/images/Series/the-handmaids-tale-1-be3348-04ddc5-0@1x.jpg");
-  background-size: cover;
-  width: 250px;
-  height: 280px;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-}
-
-.drhouse {
-  background: url("../website/images/Series/dr-house-vignette_portrait-90bb84-0@1x.jpg");
-  background-size: cover;
-  width: 250px;
-  height: 280px;
-  background-repeat: no-repeat;
-  border-radius: 15px 15px 0 0;
-} */
