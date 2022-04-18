@@ -41,19 +41,16 @@ class FilmController extends AbstractController
         $form = $this->createForm(FilmType::class,$film);
         // Récuperation des données du fomulaires
         $form->handleRequest($request);
-        $string = $film->getActeurs();
-        var_dump($string);
-        // $film->'acteurs' = explode(";",$string);
         
- ;       // Securité et validation
+         // Securité et validation
         if($form->isSubmitted() && $form->isValid()){
             //si le formulaire est soumis ET valide on demande a doctrine de sauvegarder ces données dans la bdd
             $manager ->persist($film);
-            // $manager->flush();
-            return $this->redirectToRoute('film.show',[
-                'page_title'=>$film->getTitre(),
-                'id'=>$film->getId(),
+            $manager->flush();
+            $this->addFlash('success',"Votre film, <strong>{$film->getTitre()}</strong>, a bien été soumis");
 
+            return $this->redirectToRoute('app_film',[
+                'page_title'=>'Films',
             ]);
         }
         
@@ -62,8 +59,6 @@ class FilmController extends AbstractController
             'form'=>$form->createView(),
         ]);
     }
-
-
 
 //  
     /**

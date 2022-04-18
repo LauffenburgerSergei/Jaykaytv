@@ -28,8 +28,8 @@ class Series
     #[ORM\Column(type: 'integer', nullable: true)]
     private $genre_3;
 
-    #[ORM\Column(type: 'array')]
-    private $acteurs = [];
+    #[ORM\Column(type: 'string', length: 255)]
+    private $acteurs;
 
     #[ORM\Column(type: 'text')]
     private $synopsis;
@@ -117,12 +117,12 @@ class Series
         return $this;
     }
 
-    public function getActeurs(): ?array
+    public function getActeurs(): ?string
     {
         return $this->acteurs;
     }
 
-    public function setActeurs(array $acteurs): self
+    public function setActeurs(string $acteurs): self
     {
         $this->acteurs = $acteurs;
 

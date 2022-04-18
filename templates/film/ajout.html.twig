@@ -12,21 +12,6 @@
 {{form_end(form)}}
 </article>
 {% endblock %}
-{% block form_row %}
-{# {{dump()}} #}
-    <div class="form__group">
-        {{form_label(form)}}
-        {{form_widget(form)}}
-    </div>
-{{ form_label(form.acteurs) }}
-<ul>
-{% for actorField in form.acteurs %}
-    <li>
-        {{ form_widget(actoreField) }}
-    </li>
-{% endfor %}
-</ul>
-{% endblock %}
 {% block text_widget %}
 <input type="text" name="{{full_name}}" id="{{id}}" class="form__input"/>
 {% endblock %}

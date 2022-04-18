@@ -124,6 +124,17 @@ footer {
   padding-top: 5px;
 }
 
+.alert{
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+  color:#d3d3d3;
+  background-color: #02052288;
+}
+.alert-success{
+  border-color: green;
+}
+
 /*###########################################*/
 /*################## image ##################*/
 /*###########################################*/

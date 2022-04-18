@@ -15,28 +15,24 @@
         {% endblock %}
     </head>
     <body>
-      <header>
-        <div class="logo">
-        
-        </div>
-        
-        
-        <nav>
-          <a class="btn_link" href={{ path('app_home')}}>Accueil</a>
-          <a class="btn_link" href={{ path('app_film')}}>Films</a>
-          <a class="btn_link" href={{ path('app_serie')}}>Series</a>
+      {% include "partials/header.html.twig" %}
+    {% for label, messages in app.flashes %}
+      <div class="alerts">
+        <div class="alert alert-{{label}}">
+          {% for message in messages %}
+            <p>{{message | raw}}</p>
+          {% endfor %}
           
-        </nav>
-      </header>
+        </div>
+      </div>
+    {% endfor %}        
+
       <main>
         {% block body %}
         coucou marie
         {% endblock %}
       </main>
-      <footer>
-        
-        <p>© 2022 Sergei Lauffenburger | Marie Agniel</p>
-      </footer>
+{% include "partials/footer.html.twig" %}
     </body>
     
 </html>

@@ -50,8 +50,8 @@ class SerieController extends AbstractController
                  'response'=>$response,
             ]);
         };
-        // var_dump($film); 
-        //$film['titre'],
+        // var_dump($serie); 
+        //$serie['titre'],
         return $this->render('serie/show.html.twig', [
             'page_title' => "",
             'serie'=>$serie,
