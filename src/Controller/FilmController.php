@@ -61,7 +61,7 @@ class FilmController extends AbstractController
 
                 // updates the 'imageFilename' property to store the file name
                 // instead of its contents
-                $path = "assets/website/images/films";
+                $path = "build/website/images/films";
                 $film->setImages($path.'/'.$newFilename);
             }
             $manager ->persist($film);
