@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\SeriesRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: SeriesRepository::class)]
 class Series
@@ -17,9 +18,13 @@ class Series
     private $titre;
 
     #[ORM\Column(type: 'integer')]
+    #[Assert\Length(exactly: 4, message:'La année doit être écrire au format "YYYY."')]
+    #[Assert\GreaterThanOrEqual(value: 1900)]
+    #[Assert\LessThanOrEqual( value: 2050)]
     private $annee;
 
     #[ORM\Column(type: 'integer', nullable: false)]
+    #[Assert\LessThan(255)]
     private $genre_1;
 
     #[ORM\Column(type: 'integer', nullable: true)]
@@ -32,6 +37,9 @@ class Series
     private $acteurs;
 
     #[ORM\Column(type: 'text')]
+    #[Assert\Length(min :45, minMessage:"Ce synopsis est trop court.")]
+    #[Assert\GreaterThanOrEqual(value: 1900)]
+    #[Assert\LessThanOrEqual( value: 2050)]
     private $synopsis;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -47,6 +55,9 @@ class Series
     private $nombre_saison;
 
     #[ORM\Column(type: 'integer', nullable: true)]
+    #[Assert\Length(exactly: 4, message:'La année doit être écrire au format "YYYY."')]
+    #[Assert\GreaterThanOrEqual(value: 1900)]
+    #[Assert\LessThanOrEqual( value: 2050)]
     private $annee_fin;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]

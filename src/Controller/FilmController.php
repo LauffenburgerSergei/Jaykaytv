@@ -7,11 +7,12 @@ use App\Form\FilmType;
 use App\Repository\FilmsRepository;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\VarDumper\VarDumper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\VarDumper\VarDumper;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class FilmController extends AbstractController
 {
@@ -35,7 +36,6 @@ class FilmController extends AbstractController
     public function ajoutFilm(Request $request, ManagerRegistry $doctrine): Response
     {
         $manager= $doctrine->getManager();
-        // fabricant de formulaire de symfony : FORMBUILDER
         $film = new Films();
         //appelle la creation du formulaire d'ajout 
         $form = $this->createForm(FilmType::class,$film);
@@ -45,6 +45,30 @@ class FilmController extends AbstractController
          // Securité et validation
         if($form->isSubmitted() && $form->isValid()){
             //si le formulaire est soumis ET valide on demande a doctrine de sauvegarder ces données dans la bdd
+            /** @var UploadedFile $imageFilm */
+            $imageFile = $form->get('images')->getData();
+            if($imageFile){
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                
+                $newFilename = str_replace(' ','_',$film->getTitre()).'-'.uniqid().'.'.$imageFile->guessExtension();
+                
+                // Déplace le fichier dans le dossier ou les images sont stocké
+                // images_directory est defini dans /config/services.yaml
+                try {
+                    $imageFile->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+
+                // updates the 'brochureFilename' property to store the PDF file name
+                // instead of its contents
+                $path = "assets/website/images/films";
+                $film->setImages($path.'/'.$newFilename);
+            }
             $manager ->persist($film);
             $manager->flush();
             $this->addFlash('success',"Votre film, <strong>{$film->getTitre()}</strong>, a bien été soumis");
