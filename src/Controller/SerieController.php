@@ -2,12 +2,15 @@
 
 namespace App\Controller;
 
-
+use App\Entity\Series;
+use App\Form\SeriesType;
+use App\Repository\SeriesRepository;
+use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Entity\Series;
-use App\Repository\SeriesRepository;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class SerieController extends AbstractController
 {
@@ -19,6 +22,61 @@ class SerieController extends AbstractController
             'page_title'=>'Series',
             'series'=>$series->findAll(),
          
+        ]);
+    }
+
+    /**
+     * Permet l'ajout de serie dans la base de donnée
+     *
+     * @param ManagerRegistry $doctrine
+     * @return Response
+     */
+    #[Route('/serie/ajout',name: 'serie.ajout')]
+    public function ajoutFilm(Request $request, ManagerRegistry $doctrine): Response
+    {
+        $manager= $doctrine->getManager();
+        $serie = new Series();
+        //appelle la creation du formulaire d'ajout 
+        $form = $this->createForm(SeriesType::class,$serie);
+        // Récuperation des données du fomulaires
+        $form->handleRequest($request);
+        
+         // Securité et validation
+        if($form->isSubmitted() && $form->isValid()){
+            //si le formulaire est soumis ET valide on demande a doctrine de sauvegarder ces données dans la bdd
+            /** @var UploadedFile $imageFilm */
+            $imageFile = $form->get('images')->getData();
+            if($imageFile){
+                $newFilename = str_replace(' ','_',$serie->getTitre()).'-'.uniqid().'.'.$imageFile->guessExtension();
+                
+                // Déplace le fichier dans le dossier ou les images sont stocké
+                // images_directory est defini dans /config/services.yaml
+                try {
+                    $imageFile->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+
+                // updates the 'imageFilename' property to store the file name
+                // instead of its contents
+                $path = "assets/website/images/series";
+                $serie->setImages($path.'/'.$newFilename);
+            }
+            $manager ->persist($serie);
+            $manager->flush();
+            $this->addFlash('success',"Votre serie, <strong>{$serie->getTitre()}</strong>, a bien été soumis");
+
+            return $this->redirectToRoute('app_serie',[
+                'page_title'=>'Series',
+            ]);
+        }
+        
+        return $this->render('serie/ajout.html.twig',[
+            'page_title'=>"Ajouter un serie",
+            'form'=>$form->createView(),
         ]);
     }
 

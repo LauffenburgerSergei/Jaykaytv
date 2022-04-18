@@ -18,9 +18,9 @@ class Series
     private $titre;
 
     #[ORM\Column(type: 'integer')]
-    #[Assert\Length(exactly: 4, message:'La année doit être écrire au format "YYYY."')]
-    #[Assert\GreaterThanOrEqual(value: 1900)]
-    #[Assert\LessThanOrEqual( value: 2050)]
+    #[Assert\Length(exactly: 4, exactMessage:'L\'année doit être écrite au format "YYYY."')]
+    #[Assert\GreaterThanOrEqual(value: 1900, message:"L'année doit être supérieur ou égale à {{ compared_value }}")]
+    #[Assert\LessThanOrEqual( value: 2050,message: "L'année doit être inférieur ou égale à {{ compared_value }}")]
     private $annee;
 
     #[ORM\Column(type: 'integer', nullable: false)]
@@ -38,8 +38,6 @@ class Series
 
     #[ORM\Column(type: 'text')]
     #[Assert\Length(min :45, minMessage:"Ce synopsis est trop court.")]
-    #[Assert\GreaterThanOrEqual(value: 1900)]
-    #[Assert\LessThanOrEqual( value: 2050)]
     private $synopsis;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -55,9 +53,9 @@ class Series
     private $nombre_saison;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    #[Assert\Length(exactly: 4, message:'La année doit être écrire au format "YYYY."')]
-    #[Assert\GreaterThanOrEqual(value: 1900)]
-    #[Assert\LessThanOrEqual( value: 2050)]
+    #[Assert\Length(exactly: 4, exactMessage:'L\'année doit être écrite au format "YYYY."')]
+    #[Assert\GreaterThanOrEqual(value: 1900, message:"L'année doit être supérieur ou égale à {{ compared_value }}")]
+    #[Assert\LessThanOrEqual( value: 2050,message: "L'année doit être inférieur ou égale à {{ compared_value }}")]
     private $annee_fin;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]

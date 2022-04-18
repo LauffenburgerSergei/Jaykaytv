@@ -5,9 +5,7 @@ namespace App\Controller;
 use App\Entity\Films;
 use App\Form\FilmType;
 use App\Repository\FilmsRepository;
-use Doctrine\Persistence\ObjectManager;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\VarDumper\VarDumper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -47,10 +45,7 @@ class FilmController extends AbstractController
             //si le formulaire est soumis ET valide on demande a doctrine de sauvegarder ces données dans la bdd
             /** @var UploadedFile $imageFilm */
             $imageFile = $form->get('images')->getData();
-            if($imageFile){
-                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-                // this is needed to safely include the file name as part of the URL
-                
+            if($imageFile){              
                 $newFilename = str_replace(' ','_',$film->getTitre()).'-'.uniqid().'.'.$imageFile->guessExtension();
                 
                 // Déplace le fichier dans le dossier ou les images sont stocké
@@ -64,7 +59,7 @@ class FilmController extends AbstractController
                     // ... handle exception if something happens during file upload
                 }
 
-                // updates the 'brochureFilename' property to store the PDF file name
+                // updates the 'imageFilename' property to store the file name
                 // instead of its contents
                 $path = "build/website/images/films";
                 $film->setImages($path.'/'.$newFilename);

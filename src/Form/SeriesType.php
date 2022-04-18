@@ -38,19 +38,27 @@ class SeriesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('titre')
-            ->add('annee')
-            ->add('genre_1')
-            ->add('genre_2')
-            ->add('genre_3')
-            ->add('acteurs')
-            ->add('synopsis')
-            ->add('images')
-            ->add('duree_episode')
-            ->add('nombre_episode')
-            ->add('nombre_saison')
-            ->add('annee_fin')
-            ->add('video')
+ ->add('titre',TextType::class,$this->getConfiguration('Titre de série','Titre dde la série'))
+            ->add('annee',NumberType::class,$this->getConfiguration('Année de sortie de la série','Année de sortie de la série',' "min"=>"1900",
+                        "max"=>"2050",'))
+            ->add('annee_fin',NumberType::class,$this->getConfiguration('Date de fin de la série','Année de fin de la série',' "min"=>"1900",
+                        "max"=>"2050",'))
+            ->add('acteurs', TextType::class, $this->getConfiguration('Liste des acteurs principaux','Liste des acteurs principaux'))
+            ->add('synopsis',TextareaType::class,$this->getConfiguration('Synopsis','Synopsis'))
+            ->add('images',FileType::class,$this->getConfiguration('Insérer une image','Insérer une image'))
+            ->add('duree_episode',IntegerType::class,$this->getConfiguration('Insérer une durée moyenne des épisodes','Insérer une durée moyenne des épisodes','\'constraints\' => [
+                    new File([
+                        \'maxSize\' => \'1024k\',
+                        \'mimeTypes\' => [
+                            \'image/jpeg\',
+                            \'image/svg+xml\',
+                            \'image/webp\',
+                        ],
+                        \'mimeTypesMessage\' => \'Ce format de fichier n\'est pas accepté.\',
+                    ]'))
+            ->add('nombre_episode',IntegerType::class,$this->getConfiguration('Insérer une nombre d\'épisode moyen par saison','Insérer une nombre d\'épisode moyen par saison'))
+            ->add('nombre_saison',NumberType::class,$this->getConfiguration('Insérer le nombre total de saison','Insérer le nombre total de saison'))
+            ->add('save',SubmitType::class, ['label'=>"Suggérer cette série",'attr'=>["class"=>"btn_link btn_submit"]])
         ;
     }
 
