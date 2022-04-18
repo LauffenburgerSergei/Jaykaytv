@@ -17,7 +17,7 @@
     <body>
       {% include "partials/header.html.twig" %}
       <main>
-          {% for label, messages in app.flashes %}
+    {% for label, messages in app.flashes %}
       <div class="alerts">
         <div class="alert alert-{{label}}">
           {% for message in messages %}
@@ -25,9 +25,11 @@
           {% endfor %}
           </div>
       </div>
-    {% endfor %}
+    {% endfor %}        
+
+      
         {% block body %}
-        coucou marie
+        
         {% endblock %}
       </main>
 {% include "partials/footer.html.twig" %}

@@ -66,7 +66,7 @@ class FilmController extends AbstractController
 
                 // updates the 'brochureFilename' property to store the PDF file name
                 // instead of its contents
-                $path = "assets/website/images/films";
+                $path = "build/website/images/films";
                 $film->setImages($path.'/'.$newFilename);
             }
             $manager ->persist($film);
