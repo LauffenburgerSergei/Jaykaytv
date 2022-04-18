@@ -142,3 +142,6 @@ footer {
   border-color: green;
   background-color: green;
 }
+.alert-error{
+  border-color: red;
+}
