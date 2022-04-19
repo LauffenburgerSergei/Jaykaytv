@@ -53,7 +53,7 @@ class SerieController extends AbstractController
                 // images_directory est defini dans /config/services.yaml
                 try {
                     $imageFile->move(
-                        $this->getParameter('images_directory'.'series'),
+                        $this->getParameter('images_directory'.'/series'),
                         $newFilename
                     );
                 } catch (FileException $e) {
