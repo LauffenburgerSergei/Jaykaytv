@@ -16,12 +16,12 @@ class FilmController extends AbstractController
 {
     #[Route('/film', name: 'app_film')]
     public function index(FilmsRepository $films): Response
-    {        
-        //Récupère l'object en fonction de l'id 
+    {
+        //Récupère tout les films 
         return $this->render('film/film.html.twig', [
             'controller_name' => 'FilmController',
             'page_title' => 'Films',
-            'films'=>$films->findAll()
+            'films' => $films->findAll()
         ]);
     }
     /**
@@ -30,30 +30,27 @@ class FilmController extends AbstractController
      * @param ManagerRegistry $doctrine
      * @return Response
      */
-    #[Route('/film/ajout',name: 'film.ajout')]
+    #[Route('/film/ajout', name: 'film.ajout')]
     public function ajoutFilm(Request $request, ManagerRegistry $doctrine): Response
     {
-        $manager= $doctrine->getManager();
+        $manager = $doctrine->getManager();
         $film = new Films();
         //appelle la creation du formulaire d'ajout 
-        $form = $this->createForm(FilmType::class,$film);
-        // Récuperation des données du fomulaires
-        $form->handleRequest($request); 
-         // Securité et validation
-        if($form->isSubmitted() && $form->isValid()){
-            //si le formulaire est soumis ET valide on demande a doctrine de sauvegarder ces données dans la bdd
-            /** @var UploadedFile $imageFilm */
+        $form = $this->createForm(FilmType::class, $film);
+        // Récupération des données du fomulaires
+        $form->handleRequest($request);
+        // Sécurité et validation
+        //si le formulaire est soumis ET valide on demande a doctrine de sauvegarder ces données dans la bdd
+        if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile $imageFile */
             $imageFile = $form->get('images')->getData();
-            if($imageFile){              
-                $newFilename = str_replace(' ','_',$film->getTitre()).'-'.uniqid().'.'.$imageFile->guessExtension();
-                
+            if ($imageFile) {
+                $newFilename = str_replace(' ', '_', $film->getTitre()) . '-' . uniqid() . '.' . $imageFile->guessExtension();
                 // Déplace le fichier dans le dossier ou les images sont stocké
-                // images_directory est defini dans /config/services.yaml
+                // images_directory est défini dans /config/services.yaml
                 try {
                     $imageFile->move(
-
                         $this->getParameter('f_images_directory'),
-
                         $newFilename
                     );
                 } catch (FileException $e) {
@@ -64,55 +61,52 @@ class FilmController extends AbstractController
                 // updates the 'imageFilename' property to store the file name
                 // instead of its contents
                 $path = "build/website/images/films";
-                $film->setImages($path.'/'.$newFilename);
+                $film->setImages($path . '/' . $newFilename);
             }
-            $manager ->persist($film);
-            $manager->flush();
-            $this->addFlash('success',"Votre film, <strong>{$film->getTitre()}</strong>, a bien été soumis");
-            return $this->redirectToRoute('app_film',[
-                'page_title'=>'Films',
-            ]);
-        }        
-        return $this->render('film/ajout.html.twig',[
-            'page_title'=>"Ajouter un film",
-            'form'=>$form->createView(),
+            $manager->persist($film);
+            $manager->flush(); //envoyer sur la base de données
+            $this->addFlash('success', "Votre film, <strong>{$film->getTitre()}</strong>, a bien été soumis");
+            return $this->redirectToRoute('app_film', []);
+        }       // fin if si le formulaire est envoyé 
+        return $this->render('film/ajout.html.twig', [
+            'page_title' => "Ajouter un film",
+            'form' => $form->createView(),
         ]);
     }
 
-//  
     /**
      * Affiche les détails d'un film
-     *@Route("/film/{id}", name="film.show")
+     *
      * 
      * @return Response
      */
-    //  #[Route('/film/{$id}', name: 'film.show')]
+    #[Route('/film/{id}', name: 'film.show')]
     public function show(FilmsRepository $repository, $id): Response
     {
         $genres = [
-            'Action','Comédie','Drame','Science Fiction', 'Horreur','Romance','Animation','Thriller','Biopic','Guerre','Aventure','Crime','Fantastique','Fantaisie','Historique','Policier', 'Comédie Romantique','Médical'
+            'Action', 'Comédie', 'Drame', 'Science Fiction', 'Horreur', 'Romance', 'Animation', 'Thriller', 'Biopic', 'Guerre', 'Aventure', 'Crime', 'Fantastique', 'Fantaisie', 'Historique', 'Policier', 'Comédie Romantique', 'Médical'
         ];
-        if(!is_numeric($id)){
+        if (!is_numeric($id)) {
             $response = "L'identifiant est incorrect. Le format attendu est numérique.";
-                        return $this->render('film/none.html.twig',[
-                 'page_title' => 'Film inconnu',
-                 'id'=>$id,
-                 'response'=>$response,
+            return $this->render('film/none.html.twig', [
+                'page_title' => 'Film inconnu',
+                'id' => $id,
+                'response' => $response,
             ]);
         }
         $film = $repository->findOneById($id);
-        if(!$film){   
-            $response="Aucun film ne correspond à l'identifiant {{id}}";         
-            return $this->render('film/none.html.twig',[
-                 'page_title' => 'Film inconnu',
-                 'id'=>$id,
-                 'response'=>$response,
+        if (!$film) {
+            $response = "Aucun film ne correspond à l'identifiant $id";
+            return $this->render('film/none.html.twig', [
+                'page_title' => 'Film inconnu',
+                'id' => $id,
+                'response' => $response,
             ]);
         };
         return $this->render('film/show.html.twig', [
             'page_title' => "",
-            'film'=>$film,
-            'genres'=>$genres,
-            ]);
+            'film' => $film,
+            'genres' => $genres,
+        ]);
     }
 }

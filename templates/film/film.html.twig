@@ -2,7 +2,7 @@
 {% block stylesheets %}
     {{ encore_entry_link_tags('film') }} 
 {% endblock %}
-
+{% block title %}{{page_title}}{% endblock %}
 {% block body %}
     <a class="btn_link btn__film" href={{ path('film.ajout')}}>Suggérer un films</a>
     <h2>Films</h2>

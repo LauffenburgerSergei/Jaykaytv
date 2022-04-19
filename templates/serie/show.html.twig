@@ -10,7 +10,7 @@
             <img src={{asset(serie.images)}} alt={{serie.titre}}>
             <figcaption>
                 <p class="ficaption__detail">Date de sortie : {{serie.annee}}  | {{serie.anneefin ? "Date de fin : #{serie.anneefin}": 'En Cours'}}</p> 
-                <p class="ficaption__detail">Genre : {{serie.genre1}}{% if serie.genre2 is not empty %}, {{serie.genre2}}{% endif %}{% if serie.genre3 is not empty %}, {{serie.genre3}}{% endif %}
+                <p class="ficaption__detail">Genre : {% for key, genre in genres %}{% if key+1 == serie.genre1 %}{{genre}}{% endif %}{% endfor %}{% if serie.genre2 is not empty %}{% for key, genre in genres %}{% if key+1 == serie.genre2 %}, {{genre}}{% endif %}{% endfor %}{% endif %}{% if serie.genre3 is not empty %}{% for key, genre in genres %}{% if key+1 == serie.genre3 %}, {{genre}}{% endif %}{% endfor %}{% endif %}
                 </p>
                 <p class="ficaption__detail">Acteurs principaux : {{serie.acteurs}} </p><br/>
                 <p class="ficaption__detail">Synopsis :<br/> {{serie.synopsis}}</p>

@@ -18,7 +18,6 @@ class SerieController extends AbstractController
     public function index(SeriesRepository $series): Response
     {
         return $this->render('serie/serie.html.twig', [
-            'controller_name' => 'SerieController',
             'page_title' => 'Series',
             'series' => $series->findAll(),
 
@@ -88,10 +87,14 @@ class SerieController extends AbstractController
      * @param $id
      * @return Response
      */
+    #[Route('/serie/{id}', name: 'serie.show')]
     public function show(SeriesRepository $repository,  $id): Response
     {
+        $genres = [
+            'Action', 'Comédie', 'Drame', 'Science Fiction', 'Horreur', 'Romance', 'Animation', 'Thriller', 'Biopic', 'Guerre', 'Aventure', 'Crime', 'Fantastique', 'Fantaisie', 'Historique', 'Policier', 'Comédie Romantique', 'Médical'
+        ];
         if (!is_numeric($id)) {
-            $response = "L'idendifiant est incorrecte. Le format attendu est numérique";
+            $response = "L'identifiant est incorrecte. Le format attendu est numérique";
             return $this->render('film/none.html.twig', [
                 'page_title' => 'serie inconnue',
                 'id' => $id,
@@ -100,7 +103,7 @@ class SerieController extends AbstractController
         }
         $serie = $repository->findOneById($id);
         if (!$serie) {
-            $response = "Aucunne serie ne correspond à l'identifiant {{id}}";
+            $response = "Aucune serie ne correspond à l'identifiant {{id}}";
             return $this->render('film/none.html.twig', [
                 'page_title' => 'Serie inconnu',
                 'id' => $id,
@@ -110,6 +113,7 @@ class SerieController extends AbstractController
         return $this->render('serie/show.html.twig', [
             'page_title' => "",
             'serie' => $serie,
+            'genres' => $genres,
         ]);
     }
 }

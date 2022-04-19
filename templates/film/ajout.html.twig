@@ -2,10 +2,11 @@
 {% block stylesheets %}
     {{ encore_entry_link_tags('ajout') }} 
 {% endblock %}
+{% block title %}{{page_title}}{% endblock %}
 {% form_theme form _self %}
 {% block body %}
 <article class="ajout__film">
-    <h2 class="title_padding">Ajout film</h2>  
+    <h2 class="title_padding">Ajouter un film</h2>  
     {{form_start(form)}}
     {{form_end(form)}}
 </article>

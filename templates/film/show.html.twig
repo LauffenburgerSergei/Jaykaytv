@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
-    {{ encore_entry_link_tags('show') }} 
+    {{ encore_entry_link_tags('show') }}
 {% endblock %}
 {% block body %}
 <article class="details">
@@ -11,6 +11,8 @@
             <figcaption>
                 <p class="ficaption__detail">Date de sortie : {{film.annee}}</p> 
                 <p class="ficaption__detail">Durée : {{film.duree}} min</p>
+                {# commenter plus en details
+                 #}
                 <p class="ficaption__detail">Genre : {% for key, genre in genres %}{% if key+1 == film.genre1 %}{{genre}}{% endif %}{% endfor %}{% if film.genre2 is not empty %}{% for key, genre in genres %}{% if key+1 == film.genre2 %}, {{genre}}{% endif %}{% endfor %}{% endif %}{% if film.genre3 is not empty %}{% for key, genre in genres %}{% if key+1 == film.genre3 %}, {{genre}}{% endif %}{% endfor %}{% endif %}
                 </p>
                 <p class="ficaption__detail">Acteurs principaux : {{film.acteurs}}</p><br/>
