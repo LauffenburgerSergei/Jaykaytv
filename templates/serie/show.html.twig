@@ -8,7 +8,6 @@
     <section>
         <figure>
             <img src={{asset(serie.images)}} alt={{serie.titre}}>
-    
             <figcaption>
                 <p class="ficaption__detail">Date de sortie : {{serie.annee}}  | {{serie.anneefin ? "Date de fin : #{serie.anneefin}": 'En Cours'}}</p> 
                 <p class="ficaption__detail">Genre : {{serie.genre1}}{% if serie.genre2 is not empty %}, {{serie.genre2}}{% endif %}{% if serie.genre3 is not empty %}, {{serie.genre3}}{% endif %}
@@ -23,7 +22,5 @@
             <p>Nombre d'episodes : {{serie.nombreepisode}}</p>
         </div>
     </section>
-    
-
 </article>
 {% endblock %}

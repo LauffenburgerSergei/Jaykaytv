@@ -5,7 +5,7 @@ namespace App\Entity;
 use App\Repository\FilmsRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
-use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: FilmsRepository::class)]
 /**
@@ -23,6 +23,9 @@ class Films
     private $titre;
 
     #[ORM\Column(type: 'integer')]
+    #[Assert\Length(exactly: 4, exactMessage: 'L\'année doit être écrite au format "YYYY."')]
+    #[Assert\GreaterThanOrEqual(value: 1900, message: "L'année doit être supérieur ou égale à { compared_value }")]
+    #[Assert\LessThanOrEqual(value: 2050, message: "L'année doit être inférieur ou égale à { compared_value }")]
     private $annee;
 
     #[ORM\Column(type: 'integer', nullable: true)]
@@ -38,6 +41,7 @@ class Films
     private $acteurs;
 
     #[ORM\Column(type: 'text')]
+    #[Assert\Length(min: 45, minMessage: "Ce synopsis est trop court.")]
     private $synopsis;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -45,19 +49,19 @@ class Films
 
     #[ORM\Column(type: 'integer')]
     private $duree;
-/**
- * Création d'une fonction pour permettre d'initialiser le slug  (avant le persist et avant la maj)
- * 
- * @ORM\PrePersist
- * @ORM\PreUpdate
- */
-public function initializeSlug()
-{
-   if(empty($this->slug)){
-        $slugify = new Slugify();
-        $this->slug = $slugify->slugify($this->titre);
-    };
-}
+    /**
+     * Création d'une fonction pour permettre d'initialiser le slug  (avant le persist et avant la maj)
+     * 
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function initializeSlug()
+    {
+        if (empty($this->slug)) {
+            $slugify = new Slugify();
+            $this->slug = $slugify->slugify($this->titre);
+        };
+    }
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $video;

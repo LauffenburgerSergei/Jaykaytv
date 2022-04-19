@@ -6,20 +6,16 @@
 {% block body %}
     <a class="btn_link btn__film" href={{ path('film.ajout')}}>Suggérer un films</a>
     <h2>Films</h2>
-    
-
-<article class="films">    
-{% for film in films %}   
-  
-    <a class="film__card" href={{path('film.show',{ 'id' : film.id})}}>
-        <figure class="figure">
-            <img src={{asset(film.images)}} alt={{film.titre}} class="film__img">
-            <figcaption class="figcaption__card">
-                <h3 class="figcaption_card-h3">{{film.titre}}</h3>            
-            </figcaption>
-        </figure>
-    </a>
-        {% endfor %}
-    
-</article>
+    <article class="films">    
+    {% for film in films %}    
+        <a class="film__card" href={{path('film.show',{ 'id' : film.id})}}>
+            <figure class="figure">
+                <img src={{asset(film.images)}} alt={{film.titre}} class="film__img">
+                <figcaption class="figcaption__card">
+                    <h3 class="figcaption_card-h3">{{film.titre}}</h3>            
+                </figcaption>
+            </figure>
+        </a>
+    {% endfor %}        
+    </article>
 {% endblock %}

@@ -38,8 +38,7 @@ class FilmController extends AbstractController
         //appelle la creation du formulaire d'ajout 
         $form = $this->createForm(FilmType::class,$film);
         // Récuperation des données du fomulaires
-        $form->handleRequest($request);
-        
+        $form->handleRequest($request); 
          // Securité et validation
         if($form->isSubmitted() && $form->isValid()){
             //si le formulaire est soumis ET valide on demande a doctrine de sauvegarder ces données dans la bdd
@@ -59,6 +58,7 @@ class FilmController extends AbstractController
                     );
                 } catch (FileException $e) {
                     // ... handle exception if something happens during file upload
+                    // nan mais y aura pas d'erreurs, le code est parfait
                 }
 
                 // updates the 'imageFilename' property to store the file name
@@ -69,12 +69,10 @@ class FilmController extends AbstractController
             $manager ->persist($film);
             $manager->flush();
             $this->addFlash('success',"Votre film, <strong>{$film->getTitre()}</strong>, a bien été soumis");
-
             return $this->redirectToRoute('app_film',[
                 'page_title'=>'Films',
             ]);
-        }
-        
+        }        
         return $this->render('film/ajout.html.twig',[
             'page_title'=>"Ajouter un film",
             'form'=>$form->createView(),
@@ -117,9 +115,4 @@ class FilmController extends AbstractController
             'genres'=>$genres,
             ]);
     }
-
-
-
-
-
 }

@@ -6,25 +6,23 @@
 {% block body %}
 <article class="ajout__film">
     <h2 class="title_padding">Ajout film</h2>  
-{{form_start(form)}}
-
-
-{{form_end(form)}}
+    {{form_start(form)}}
+    {{form_end(form)}}
 </article>
 {% endblock %}
 {% block text_widget %}
-<input type="text" name="{{full_name}}" id="{{id}}" class="form__input"/>
+    <input type="text" name="{{full_name}}" id="{{id}}" class="form__input"/>
 {% endblock %}
 {% block textarea_widget %}
-<textarea name="{{full_name}}" id="{{id}}" class="form__textarea"></textarea>
+    <textarea name="{{full_name}}" id="{{id}}" class="form__textarea"></textarea>
 {% endblock %}
 {% block file_widget %}
-<input type="file" name="{{full_name}}" id="{{id}}" class="form__filet"/>
+    <input type="file" name="{{full_name}}" id="{{id}}" class="form__filet"/>
 {% endblock %}
 {% block number_widget %}
-<input type="number" name="{{full_name}}" id="{{id}}" class="form__int"/>
+    <input type="number" name="{{full_name}}" id="{{id}}" class="form__int"/>
 {% endblock %}
-{% block collection_widget %}
-<input type="text" id="form_emails_0" name="form[emails][0]" />
-<input type="email" id="form_emails_1" name="form[emails][1]"/>
-{% endblock %}
+{# {% block collection_widget %}
+    <input type="text" id="form_emails_0" name="form[emails][0]" />
+    <input type="email" id="form_emails_1" name="form[emails][1]"/>
+{% endblock %} #}
