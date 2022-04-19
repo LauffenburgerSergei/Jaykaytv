@@ -52,7 +52,9 @@ class FilmController extends AbstractController
                 // images_directory est defini dans /config/services.yaml
                 try {
                     $imageFile->move(
-                        $this->getParameter('images_directory'.'film'),
+
+                        $this->getParameter('f_images_directory'),
+
                         $newFilename
                     );
                 } catch (FileException $e) {
