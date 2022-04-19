@@ -6,6 +6,7 @@
 parameters:
     f_images_directory: '%kernel.project_dir%/assets/website/images/films'
     s_images_directory: '%kernel.project_dir%/assets/website/images/Series'
+
 services:
     # default configuration for services in *this* file
     _defaults:
