@@ -53,7 +53,7 @@ class SerieController extends AbstractController
                 // images_directory est defini dans /config/services.yaml
                 try {
                     $imageFile->move(
-                        $this->getParameter('images_directory'),
+                        $this->getParameter('images_directory'.'series'),
                         $newFilename
                     );
                 } catch (FileException $e) {
@@ -62,12 +62,12 @@ class SerieController extends AbstractController
 
                 // updates the 'imageFilename' property to store the file name
                 // instead of its contents
-                $path = "assets/website/images/series";
+                $path = "build/website/images/series";
                 $serie->setImages($path.'/'.$newFilename);
             }
             $manager ->persist($serie);
             $manager->flush();
-            $this->addFlash('success',"Votre serie, <strong>{$serie->getTitre()}</strong>, a bien été soumis");
+            $this->addFlash('success',"Votre serie, <strong>{$serie->getTitre()}</strong>, a bien été soumise");
 
             return $this->redirectToRoute('app_serie',[
                 'page_title'=>'Series',
